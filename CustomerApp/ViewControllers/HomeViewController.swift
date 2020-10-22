@@ -10,6 +10,8 @@ import UIKit
 
 class HomeViewController:UIViewController{
     
+    static let CONTROLLER_IDENTIFIER = "HomeViewController"
+    
     @IBOutlet weak var homeTableView: UITableView!
 
     override func viewDidLoad() {

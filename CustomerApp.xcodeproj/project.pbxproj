@@ -22,6 +22,8 @@
 		4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFC7254183890065537B /* HomeTableViewCell.swift */; };
 		4262EFD5254192970065537B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4262EFD4254192970065537B /* GoogleService-Info.plist */; };
 		4262EFDD2541A2190065537B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFDC2541A2190065537B /* SignupViewController.swift */; };
+		4262EFE22541A3C90065537B /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4262EFE12541A3C90065537B /* Signup.storyboard */; };
+		4262F0012541CEE70065537B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262F0002541CEE70065537B /* TabBarController.swift */; };
 		428799132540893500E83CEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799122540893500E83CEF /* HomeViewController.swift */; };
 		428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799172540897700E83CEF /* AccountDetailsViewController.swift */; };
 		4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287991C254089B200E83CEF /* OrderHistoryViewController.swift */; };
@@ -70,6 +72,8 @@
 		4262EFC7254183890065537B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		4262EFD4254192970065537B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4262EFDC2541A2190065537B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		4262EFE12541A3C90065537B /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
+		4262F0002541CEE70065537B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		428799122540893500E83CEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		428799172540897700E83CEF /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		4287991C254089B200E83CEF /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				428799172540897700E83CEF /* AccountDetailsViewController.swift */,
 				4287991C254089B200E83CEF /* OrderHistoryViewController.swift */,
 				4262EFDC2541A2190065537B /* SignupViewController.swift */,
+				4262EFE12541A3C90065537B /* Signup.storyboard */,
+				4262F0002541CEE70065537B /* TabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				42486E8F253C1ADE00C3BD41 /* LaunchScreen.storyboard in Resources */,
 				4262EFD5254192970065537B /* GoogleService-Info.plist in Resources */,
 				42486E8C253C1ADE00C3BD41 /* Assets.xcassets in Resources */,
+				4262EFE22541A3C90065537B /* Signup.storyboard in Resources */,
 				42486E8A253C1ADD00C3BD41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -483,6 +490,7 @@
 				428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */,
 				4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */,
 				4262EFBE254176AD0065537B /* CardView.swift in Sources */,
+				4262F0012541CEE70065537B /* TabBarController.swift in Sources */,
 				428799132540893500E83CEF /* HomeViewController.swift in Sources */,
 				4262EFC3254177030065537B /* Constants.swift in Sources */,
 			);
