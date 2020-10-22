@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>366148793521-g4qa9va0eo1fk6ka98rbokuqn98tfntf.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.366148793521-g4qa9va0eo1fk6ka98rbokuqn98tfntf</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDAmwVEZZ8hkZwZg_OmFF0xw1N8S31e1aI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>366148793521</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>kalpavriksha.onkar.CustomerApp</string>
+	<key>PROJECT_ID</key>
+	<string>customerapp-1330b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>customerapp-1330b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:366148793521:ios:7d7f42b0fe9770592d5e90</string>
+	<key>DATABASE_URL</key>
+	<string>https://customerapp-1330b.firebaseio.com</string>
+</dict>
+</plist>

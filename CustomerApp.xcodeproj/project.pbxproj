@@ -3,19 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		151524F6C12945F81EE008B6 /* Pods_CustomerApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20BE12757901B254D378B2EC /* Pods_CustomerApp.framework */; };
 		42486E83253C1ADD00C3BD41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42486E82253C1ADD00C3BD41 /* AppDelegate.swift */; };
 		42486E85253C1ADD00C3BD41 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42486E84253C1ADD00C3BD41 /* SceneDelegate.swift */; };
-		42486E87253C1ADD00C3BD41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42486E86253C1ADD00C3BD41 /* ViewController.swift */; };
+		42486E87253C1ADD00C3BD41 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42486E86253C1ADD00C3BD41 /* LoginViewController.swift */; };
 		42486E8A253C1ADD00C3BD41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42486E88253C1ADD00C3BD41 /* Main.storyboard */; };
 		42486E8C253C1ADE00C3BD41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42486E8B253C1ADE00C3BD41 /* Assets.xcassets */; };
 		42486E8F253C1ADE00C3BD41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42486E8D253C1ADE00C3BD41 /* LaunchScreen.storyboard */; };
 		42486E9A253C1ADE00C3BD41 /* CustomerAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42486E99253C1ADE00C3BD41 /* CustomerAppTests.swift */; };
 		42486EA5253C1ADE00C3BD41 /* CustomerAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42486EA4253C1ADE00C3BD41 /* CustomerAppUITests.swift */; };
+		4262EFB6254175930065537B /* OrdersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFB5254175930065537B /* OrdersTableViewCell.swift */; };
+		4262EFBE254176AD0065537B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFBD254176AD0065537B /* CardView.swift */; };
+		4262EFC3254177030065537B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFC2254177030065537B /* Constants.swift */; };
+		4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFC7254183890065537B /* HomeTableViewCell.swift */; };
+		4262EFD5254192970065537B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4262EFD4254192970065537B /* GoogleService-Info.plist */; };
+		4262EFDD2541A2190065537B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFDC2541A2190065537B /* SignupViewController.swift */; };
+		428799132540893500E83CEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799122540893500E83CEF /* HomeViewController.swift */; };
+		428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799172540897700E83CEF /* AccountDetailsViewController.swift */; };
+		4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287991C254089B200E83CEF /* OrderHistoryViewController.swift */; };
 		7D3665227381F45367236BA8 /* Pods_CustomerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359069E839105CC5C954976A /* Pods_CustomerAppTests.framework */; };
 		823FCA44D29556D971818666 /* Pods_CustomerApp_CustomerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */; };
 /* End PBXBuildFile section */
@@ -44,7 +53,7 @@
 		42486E7F253C1ADD00C3BD41 /* CustomerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42486E82253C1ADD00C3BD41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42486E84253C1ADD00C3BD41 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42486E86253C1ADD00C3BD41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		42486E86253C1ADD00C3BD41 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		42486E89253C1ADD00C3BD41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42486E8B253C1ADE00C3BD41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42486E8E253C1ADE00C3BD41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +64,15 @@
 		42486EA0253C1ADE00C3BD41 /* CustomerAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomerAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		42486EA4253C1ADE00C3BD41 /* CustomerAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerAppUITests.swift; sourceTree = "<group>"; };
 		42486EA6253C1ADE00C3BD41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4262EFB5254175930065537B /* OrdersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersTableViewCell.swift; sourceTree = "<group>"; };
+		4262EFBD254176AD0065537B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		4262EFC2254177030065537B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		4262EFC7254183890065537B /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
+		4262EFD4254192970065537B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4262EFDC2541A2190065537B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		428799122540893500E83CEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		428799172540897700E83CEF /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
+		4287991C254089B200E83CEF /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
 		7A86BDA62FBB81A1F0666A76 /* Pods-CustomerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.debug.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		92F4419879CD2426AD94045F /* Pods-CustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.release.xcconfig"; sourceTree = "<group>"; };
 		9EC8E74B5AA508520A1AFE75 /* Pods-CustomerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,13 +134,19 @@
 		42486E81253C1ADD00C3BD41 /* CustomerApp */ = {
 			isa = PBXGroup;
 			children = (
+				4262EFB42541756E0065537B /* TableViewCells */,
+				42FF4913253DF85C00E24911 /* Models */,
+				42FF4912253DF84F00E24911 /* Utilities */,
+				42FF4911253DF83F00E24911 /* Delegates */,
+				42FF4910253DF83700E24911 /* ViewControllers */,
 				42486E82253C1ADD00C3BD41 /* AppDelegate.swift */,
 				42486E84253C1ADD00C3BD41 /* SceneDelegate.swift */,
-				42486E86253C1ADD00C3BD41 /* ViewController.swift */,
+				42486E86253C1ADD00C3BD41 /* LoginViewController.swift */,
 				42486E88253C1ADD00C3BD41 /* Main.storyboard */,
 				42486E8B253C1ADE00C3BD41 /* Assets.xcassets */,
 				42486E8D253C1ADE00C3BD41 /* LaunchScreen.storyboard */,
 				42486E90253C1ADE00C3BD41 /* Info.plist */,
+				4262EFD4254192970065537B /* GoogleService-Info.plist */,
 			);
 			path = CustomerApp;
 			sourceTree = "<group>";
@@ -145,6 +169,49 @@
 			path = CustomerAppUITests;
 			sourceTree = "<group>";
 		};
+		4262EFB42541756E0065537B /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				4262EFB5254175930065537B /* OrdersTableViewCell.swift */,
+				4262EFC7254183890065537B /* HomeTableViewCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		42FF4910253DF83700E24911 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				428799122540893500E83CEF /* HomeViewController.swift */,
+				428799172540897700E83CEF /* AccountDetailsViewController.swift */,
+				4287991C254089B200E83CEF /* OrderHistoryViewController.swift */,
+				4262EFDC2541A2190065537B /* SignupViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		42FF4911253DF83F00E24911 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		42FF4912253DF84F00E24911 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4262EFBD254176AD0065537B /* CardView.swift */,
+				4262EFC2254177030065537B /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		42FF4913253DF85C00E24911 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		5C5B33359B97BD67132CC850 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +222,6 @@
 				9EC8E74B5AA508520A1AFE75 /* Pods-CustomerAppTests.debug.xcconfig */,
 				B69463053DB46539E886C6FE /* Pods-CustomerAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -278,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				42486E8F253C1ADE00C3BD41 /* LaunchScreen.storyboard in Resources */,
+				4262EFD5254192970065537B /* GoogleService-Info.plist in Resources */,
 				42486E8C253C1ADE00C3BD41 /* Assets.xcassets in Resources */,
 				42486E8A253C1ADD00C3BD41 /* Main.storyboard in Resources */,
 			);
@@ -407,9 +474,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42486E87253C1ADD00C3BD41 /* ViewController.swift in Sources */,
+				4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */,
+				42486E87253C1ADD00C3BD41 /* LoginViewController.swift in Sources */,
+				4262EFDD2541A2190065537B /* SignupViewController.swift in Sources */,
+				4262EFB6254175930065537B /* OrdersTableViewCell.swift in Sources */,
 				42486E83253C1ADD00C3BD41 /* AppDelegate.swift in Sources */,
 				42486E85253C1ADD00C3BD41 /* SceneDelegate.swift in Sources */,
+				428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */,
+				4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */,
+				4262EFBE254176AD0065537B /* CardView.swift in Sources */,
+				428799132540893500E83CEF /* HomeViewController.swift in Sources */,
+				4262EFC3254177030065537B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
