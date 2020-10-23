@@ -14,4 +14,16 @@ class Constants{
     static let KEY_PARAMETER = "?apiKey="
     static let KEY = "7197d6ced50f405c963c1ea1e7d24844"
     
+    
+    static func setUserDefaults(email:String?,password:String?){
+        
+        guard let email = email else {return}
+        guard let password = password  else {return}
+        
+        let defaults = UserDefaults.standard
+        defaults.setValue(email, forKey: "email")
+        defaults.setValue(password, forKey: "password")
+        
+        
+    }
 }

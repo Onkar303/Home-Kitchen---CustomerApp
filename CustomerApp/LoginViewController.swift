@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
     //MARK:- Configure the UI Elements
     func configureUI(){
         passwordTextView.isSecureTextEntry = true
+        self.navigationController?.navigationBar.isHidden = true
         addTapGestureOnSignUpText()
     }
     
@@ -73,7 +74,8 @@ class LoginViewController: UIViewController {
             if let error = error{
                 print("an error occured\(error)")
             }else {
-                self.segueToHomeViewController()
+                Constants.setUserDefaults(email: email, password: password)
+                self.performSegue(withIdentifier: "showTabs", sender: nil)
             }
             
         })
@@ -82,13 +84,12 @@ class LoginViewController: UIViewController {
     
     //MARK:- Performing segue to HomeViewController
     func segueToHomeViewController(){
-        
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
-        let tabBarController = storyBoard.instantiateViewController(identifier: TabBarController.CONTROLLER_IDENTIFIER) as! TabBarController
-        navigationController?.pushViewController(tabBarController, animated: true)
+        let homeViewController = storyBoard.instantiateViewController(identifier: HomeViewController.CONTROLLER_IDENTIFIER) as! HomeViewController
+        navigationController?.pushViewController(homeViewController, animated: true)
+        
         
     }
-    
 }
 
 
