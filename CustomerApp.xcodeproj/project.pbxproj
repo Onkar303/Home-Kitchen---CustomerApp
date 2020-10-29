@@ -24,6 +24,9 @@
 		4262EFDD2541A2190065537B /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262EFDC2541A2190065537B /* SignupViewController.swift */; };
 		4262EFE22541A3C90065537B /* Signup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4262EFE12541A3C90065537B /* Signup.storyboard */; };
 		4262F0012541CEE70065537B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4262F0002541CEE70065537B /* TabBarController.swift */; };
+		4272F390254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4272F38F254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard */; };
+		4272F398254A7A0F008BFE61 /* OrderHistoryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4272F397254A7A0F008BFE61 /* OrderHistoryStoryboard.storyboard */; };
+		4272F3A0254A7A46008BFE61 /* HomeStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4272F39F254A7A46008BFE61 /* HomeStoryboard.storyboard */; };
 		428799132540893500E83CEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799122540893500E83CEF /* HomeViewController.swift */; };
 		428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799172540897700E83CEF /* AccountDetailsViewController.swift */; };
 		4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287991C254089B200E83CEF /* OrderHistoryViewController.swift */; };
@@ -74,6 +77,9 @@
 		4262EFDC2541A2190065537B /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		4262EFE12541A3C90065537B /* Signup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Signup.storyboard; sourceTree = "<group>"; };
 		4262F0002541CEE70065537B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4272F38F254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountDetailsStoryboard.storyboard; sourceTree = "<group>"; };
+		4272F397254A7A0F008BFE61 /* OrderHistoryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderHistoryStoryboard.storyboard; sourceTree = "<group>"; };
+		4272F39F254A7A46008BFE61 /* HomeStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeStoryboard.storyboard; sourceTree = "<group>"; };
 		428799122540893500E83CEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		428799172540897700E83CEF /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		4287991C254089B200E83CEF /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
@@ -186,8 +192,11 @@
 			isa = PBXGroup;
 			children = (
 				428799122540893500E83CEF /* HomeViewController.swift */,
+				4272F39F254A7A46008BFE61 /* HomeStoryboard.storyboard */,
 				428799172540897700E83CEF /* AccountDetailsViewController.swift */,
+				4272F38F254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard */,
 				4287991C254089B200E83CEF /* OrderHistoryViewController.swift */,
+				4272F397254A7A0F008BFE61 /* OrderHistoryStoryboard.storyboard */,
 				4262EFDC2541A2190065537B /* SignupViewController.swift */,
 				4262EFE12541A3C90065537B /* Signup.storyboard */,
 				4262F0002541CEE70065537B /* TabBarController.swift */,
@@ -351,8 +360,11 @@
 			files = (
 				42486E8F253C1ADE00C3BD41 /* LaunchScreen.storyboard in Resources */,
 				4262EFD5254192970065537B /* GoogleService-Info.plist in Resources */,
+				4272F3A0254A7A46008BFE61 /* HomeStoryboard.storyboard in Resources */,
+				4272F390254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard in Resources */,
 				42486E8C253C1ADE00C3BD41 /* Assets.xcassets in Resources */,
 				4262EFE22541A3C90065537B /* Signup.storyboard in Resources */,
+				4272F398254A7A0F008BFE61 /* OrderHistoryStoryboard.storyboard in Resources */,
 				42486E8A253C1ADD00C3BD41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
