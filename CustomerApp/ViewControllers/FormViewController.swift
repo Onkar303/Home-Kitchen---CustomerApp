@@ -63,12 +63,12 @@ class FormViewController: UIViewController{
         }else if title == "Contact Number"{
             updateUser(updateField: Constants.USERDEFAULTS_USERCONTACTNUMBER, text: text)
         }else{
-            updateUser(updateField: Constants.USERDEFAULTS_USERADDRESS, text: text)
+            updateUser(updateField: Constants.USERDEFAULTS_USERADDRESS, text: text)
         }
     }
     
     // Function to update User
-    func updateUser(){
+    func updateUser(updateField: String?, text: String){
     
 }
 
@@ -77,7 +77,10 @@ class FormViewController: UIViewController{
         firebaseAuth?.currentUser?.updateEmail(to: password, completion: { (error) in
             if let error = error{
                 self.present(Utilities.showMessage(title: Constants.ERROR, message: error.localizedDescription), animated: true, completion: nil)
+                return
             }
             
+            self.responseDelegate?.onUpdateResponse(status: true, updateField: "Password")
         })
     }
+}

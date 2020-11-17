@@ -37,6 +37,7 @@
 		BEE14FE2256352BD00B84C68 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE14FE1256352BD00B84C68 /* FormViewController.swift */; };
 		BEE14FE7256353FE00B84C68 /* FormStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE14FE6256353FE00B84C68 /* FormStoryboard.storyboard */; };
 		BEE14FF42563564C00B84C68 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE14FF32563564C00B84C68 /* CustomTextField.swift */; };
+		BEE14FF925635F8400B84C68 /* ResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE14FF825635F8400B84C68 /* ResponseDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		BEE14FE1256352BD00B84C68 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		BEE14FE6256353FE00B84C68 /* FormStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FormStoryboard.storyboard; sourceTree = "<group>"; };
 		BEE14FF32563564C00B84C68 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		BEE14FF825635F8400B84C68 /* ResponseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResponseDelegate.swift; path = CustomerApp/Utilities/ResponseDelegate.swift; sourceTree = SOURCE_ROOT; };
 		D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomerApp_CustomerAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98B02C3549DE657FE12D7EE /* Pods-CustomerApp-CustomerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp-CustomerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp-CustomerAppUITests/Pods-CustomerApp-CustomerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,6 +222,7 @@
 		42FF4911253DF83F00E24911 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				BEE14FF825635F8400B84C68 /* ResponseDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -511,6 +514,7 @@
 			files = (
 				4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */,
 				42486E87253C1ADD00C3BD41 /* LoginViewController.swift in Sources */,
+				BEE14FF925635F8400B84C68 /* ResponseDelegate.swift in Sources */,
 				4262EFDD2541A2190065537B /* SignupViewController.swift in Sources */,
 				BEE14FE2256352BD00B84C68 /* FormViewController.swift in Sources */,
 				BEE14FF42563564C00B84C68 /* CustomTextField.swift in Sources */,

@@ -25,6 +25,9 @@ class Constants{
         defaults.setValue(password, forKey: "password")
     }
     
+    static let ERROR = "ERROR"
+    static let SUCCESS = "SUCCESS"
+    
     //MARK:- AccountDetailsViewController
     static let ACCOUNT_PASSWORD_PARAM = "Password"
     static let ACCOUNT_USER_FIRST_NAME_PARAM = "First Name"

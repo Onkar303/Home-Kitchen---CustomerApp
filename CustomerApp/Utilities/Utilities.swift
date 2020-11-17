@@ -50,7 +50,10 @@ class Utilities{
         guard let message = message else{return UIAlertController()}
         
         let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let
+        let alertAction = UIAlertAction(title: "ok", style: .cancel, handler: nil)
+        
+        alertcontroller.addAction(alertAction)
+        return alertcontroller
     }
     
     static func removeUserDefaults(){
