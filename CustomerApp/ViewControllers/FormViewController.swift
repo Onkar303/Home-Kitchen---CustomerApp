@@ -14,7 +14,7 @@ class FormViewController: UIViewController{
     
     @IBOutlet weak var paramTitleLabel: UILabel!
     @IBOutlet weak var commonTextField: CustomTextField!
-    static let STORYBOARD_IDENTIFIER = "FromViewController"
+    static let STORYBOARD_IDENTIFIER = "FormViewController"
     
     
     var titleLabel: String?
@@ -27,7 +27,7 @@ class FormViewController: UIViewController{
         super.viewDidLoad()
         
         configureUI()
-        //configureFirebase()
+        configureFirebase()
         
     }
     

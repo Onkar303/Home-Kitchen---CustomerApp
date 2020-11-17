@@ -70,10 +70,10 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
     
     
     //MARK:- Presenting FormController Modally
-    //code required
+    
     func showFormController(indexPath: IndexPath){
         let storyBoard = UIStoryboard(name: "FormStoryboard", bundle: .main)
-        let formViewController = storyboard?.instantiateViewController(identifier: FormViewController.STORYBOARD_IDENTIFIER) as! FormViewController
+        let formViewController = storyBoard.instantiateViewController(identifier: FormViewController.STORYBOARD_IDENTIFIER) as! FormViewController
         formViewController.titleLabel = accountParams[indexPath.row]
         formViewController.responseDelegate = self
         present(formViewController, animated: true, completion: nil)
@@ -140,7 +140,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
             signOut()
             return
         }
-        
+        showFormController(indexPath: indexPath)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
