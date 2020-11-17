@@ -34,6 +34,9 @@
 		823FCA44D29556D971818666 /* Pods_CustomerApp_CustomerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */; };
 		BED9F0292562399C00C2C592 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9F0282562399C00C2C592 /* Utilities.swift */; };
 		BED9F02E2562460700C2C592 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9F02D2562460700C2C592 /* AccountTableViewCell.swift */; };
+		BEE14FE2256352BD00B84C68 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE14FE1256352BD00B84C68 /* FormViewController.swift */; };
+		BEE14FE7256353FE00B84C68 /* FormStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEE14FE6256353FE00B84C68 /* FormStoryboard.storyboard */; };
+		BEE14FF42563564C00B84C68 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE14FF32563564C00B84C68 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +94,9 @@
 		B69463053DB46539E886C6FE /* Pods-CustomerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.release.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		BED9F0282562399C00C2C592 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BED9F02D2562460700C2C592 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		BEE14FE1256352BD00B84C68 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		BEE14FE6256353FE00B84C68 /* FormStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FormStoryboard.storyboard; sourceTree = "<group>"; };
+		BEE14FF32563564C00B84C68 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CustomerApp_CustomerAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98B02C3549DE657FE12D7EE /* Pods-CustomerApp-CustomerAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp-CustomerAppUITests.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp-CustomerAppUITests/Pods-CustomerApp-CustomerAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -205,6 +211,8 @@
 				4262EFDC2541A2190065537B /* SignupViewController.swift */,
 				4262EFE12541A3C90065537B /* Signup.storyboard */,
 				4262F0002541CEE70065537B /* TabBarController.swift */,
+				BEE14FE1256352BD00B84C68 /* FormViewController.swift */,
+				BEE14FE6256353FE00B84C68 /* FormStoryboard.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -222,6 +230,7 @@
 				4262EFBD254176AD0065537B /* CardView.swift */,
 				4262EFC2254177030065537B /* Constants.swift */,
 				BED9F0282562399C00C2C592 /* Utilities.swift */,
+				BEE14FF32563564C00B84C68 /* CustomTextField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -370,6 +379,7 @@
 				4272F390254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard in Resources */,
 				42486E8C253C1ADE00C3BD41 /* Assets.xcassets in Resources */,
 				4262EFE22541A3C90065537B /* Signup.storyboard in Resources */,
+				BEE14FE7256353FE00B84C68 /* FormStoryboard.storyboard in Resources */,
 				4272F398254A7A0F008BFE61 /* OrderHistoryStoryboard.storyboard in Resources */,
 				42486E8A253C1ADD00C3BD41 /* Main.storyboard in Resources */,
 			);
@@ -502,6 +512,8 @@
 				4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */,
 				42486E87253C1ADD00C3BD41 /* LoginViewController.swift in Sources */,
 				4262EFDD2541A2190065537B /* SignupViewController.swift in Sources */,
+				BEE14FE2256352BD00B84C68 /* FormViewController.swift in Sources */,
+				BEE14FF42563564C00B84C68 /* CustomTextField.swift in Sources */,
 				4262EFB6254175930065537B /* OrdersTableViewCell.swift in Sources */,
 				BED9F0292562399C00C2C592 /* Utilities.swift in Sources */,
 				42486E83253C1ADD00C3BD41 /* AppDelegate.swift in Sources */,

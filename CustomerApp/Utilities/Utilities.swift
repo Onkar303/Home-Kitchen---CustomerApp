@@ -16,7 +16,7 @@ class Utilities{
     static let userFirstName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_FIRSTNAME)
     
     static let userLastName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_LASTNAME)
-   // static let homeKitchenAddress = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_KITCHENADDRESS)
+   static let userAddress = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERADDRESS)
     static let userContactNumber = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERCONTACTNUMBER)
     
     //Function to save the userid and password inside the app
@@ -44,6 +44,14 @@ class Utilities{
    
     //code
     
+    // Function for Show Message
+    static func showMessage(title: String?, message: String?) -> UIAlertController{
+        guard let title = title else { return UIAlertController()}
+        guard let message = message else{return UIAlertController()}
+        
+        let alertcontroller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let
+    }
     
     static func removeUserDefaults(){
         

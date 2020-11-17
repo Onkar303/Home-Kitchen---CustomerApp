@@ -8,7 +8,9 @@
 import UIKit
 
 class AccountTableViewCell: UITableViewCell {
-
+    @IBOutlet weak var accountDetailsLabel: UILabel!
+    @IBOutlet weak var accountDetailsValue: UILabel!
+    static let CELL_IDENTIFIER = "accountCell"
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

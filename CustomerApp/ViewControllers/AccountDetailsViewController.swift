@@ -27,7 +27,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
         attachDelegate()
         instantiateAuth()
         configureUI()
-
+        
     }
     
     func attachDelegate(){
@@ -72,7 +72,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
     //MARK:- Presenting FormController Modally
     //code required
     
-   
+    
     // Function for Getting User Information
     func getUserInfo(titleLabel:String) -> String? {
         if titleLabel == Constants.ACCOUNT_PASSWORD_PARAM{
@@ -81,12 +81,11 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
             return Utilities.userFirstName
         } else if titleLabel == Constants.ACCOUNT_USER_LAST_NAME_PARAM {
             return Utilities.userLastName
-        } else {
+        } else if titleLabel == Constants.ACCOUNT_USER_CONTACT_NUMBER_PARAM {
             return Utilities.userContactNumber
+        } else {
+            return Utilities.userAddress
         }
-      //  else {
-        //    return Utilities.homeKitchenAddress
-        //}
         
     }
     
@@ -99,13 +98,13 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
             return accountParams.count
         }
         return 1
-   
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      
+        
         if indexPath.section == ACCOUNT_PARAM_SECTION{
-            let cell = tableView.dequeueReusableCell(withIdentifier: AccounTableViewCell.CELL_IDENTIFIER, for: indexPath) as! AccounTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountTableViewCell.CELL_IDENTIFIER, for: indexPath) as! AccountTableViewCell
             cell.accountDetailsLabel.text = accountParams[indexPath.row]
             
             if accountParams[indexPath.row] == Constants.ACCOUNT_PASSWORD_PARAM{
@@ -117,13 +116,13 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
             } else if accountParams[indexPath.row] == Constants.ACCOUNT_USER_CONTACT_NUMBER_PARAM {
                 cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERCONTACTNUMBER)
             } else {
-                cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.Use)
+                cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERADDRESS)
             }
             cell.accessoryType = .disclosureIndicator
         
             return cell
         }
-            
+        
         let cell = UITableViewCell()
         cell.textLabel?.text = "SignOut"
         return cell
@@ -135,7 +134,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
             signOut()
             return
         }
-        showFormController(indexPath: indexPath)
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -152,4 +151,6 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
         return CGFloat(44)
     }
     
-    }
+}
+
+//extension for ResponseDelegate-------- Function for onUpdateResponse?

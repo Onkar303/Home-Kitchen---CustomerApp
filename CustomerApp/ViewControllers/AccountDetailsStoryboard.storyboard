@@ -54,8 +54,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="accountDetailsLabel" destination="0Go-dL-5Sv" id="92K-Jw-PRn"/>
-                                            <outlet property="accountDetailsValue" destination="wBW-Iu-lco" id="cRS-Zo-8Bj"/>
+                                            <outlet property="accountDetailsLabel" destination="0Go-dL-5Sv" id="0CO-D4-n0j"/>
+                                            <outlet property="accountDetailsValue" destination="wBW-Iu-lco" id="dqv-am-FXH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
