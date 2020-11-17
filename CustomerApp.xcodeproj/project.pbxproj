@@ -31,7 +31,7 @@
 		4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287991C254089B200E83CEF /* OrderHistoryViewController.swift */; };
 		7D3665227381F45367236BA8 /* Pods_CustomerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359069E839105CC5C954976A /* Pods_CustomerAppTests.framework */; };
 		823FCA44D29556D971818666 /* Pods_CustomerApp_CustomerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */; };
-		BE815D542563AEE3001018E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE815D532563AEE3001018E8 /* GoogleService-Info.plist */; };
+		BE96054C2563F1A000C2F4D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */; };
 		BED9F0292562399C00C2C592 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9F0282562399C00C2C592 /* Utilities.swift */; };
 		BED9F02E2562460700C2C592 /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED9F02D2562460700C2C592 /* AccountTableViewCell.swift */; };
 		BEE14FE2256352BD00B84C68 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEE14FE1256352BD00B84C68 /* FormViewController.swift */; };
@@ -92,7 +92,7 @@
 		92F4419879CD2426AD94045F /* Pods-CustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.release.xcconfig"; sourceTree = "<group>"; };
 		9EC8E74B5AA508520A1AFE75 /* Pods-CustomerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B69463053DB46539E886C6FE /* Pods-CustomerAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.release.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.release.xcconfig"; sourceTree = "<group>"; };
-		BE815D532563AEE3001018E8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Fit5140-KitcehnApp/KitchenApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BED9F0282562399C00C2C592 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		BED9F02D2562460700C2C592 /* AccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
 		BEE14FE1256352BD00B84C68 /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +156,7 @@
 		42486E81253C1ADD00C3BD41 /* CustomerApp */ = {
 			isa = PBXGroup;
 			children = (
+				BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */,
 				4262EFB42541756E0065537B /* TableViewCells */,
 				42FF4913253DF85C00E24911 /* Models */,
 				42FF4912253DF84F00E24911 /* Utilities */,
@@ -163,7 +164,6 @@
 				42FF4910253DF83700E24911 /* ViewControllers */,
 				42486E82253C1ADD00C3BD41 /* AppDelegate.swift */,
 				42486E84253C1ADD00C3BD41 /* SceneDelegate.swift */,
-				BE815D532563AEE3001018E8 /* GoogleService-Info.plist */,
 				42486E86253C1ADD00C3BD41 /* LoginViewController.swift */,
 				42486E88253C1ADD00C3BD41 /* Main.storyboard */,
 				42486E8B253C1ADE00C3BD41 /* Assets.xcassets */,
@@ -378,7 +378,7 @@
 			files = (
 				42486E8F253C1ADE00C3BD41 /* LaunchScreen.storyboard in Resources */,
 				4272F3A0254A7A46008BFE61 /* HomeStoryboard.storyboard in Resources */,
-				BE815D542563AEE3001018E8 /* GoogleService-Info.plist in Resources */,
+				BE96054C2563F1A000C2F4D4 /* GoogleService-Info.plist in Resources */,
 				4272F390254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard in Resources */,
 				42486E8C253C1ADE00C3BD41 /* Assets.xcassets in Resources */,
 				4262EFE22541A3C90065537B /* Signup.storyboard in Resources */,
