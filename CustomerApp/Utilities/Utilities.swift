@@ -41,8 +41,21 @@ class Utilities{
     
     
     //MARK:- Saving Import data into Userdefaults from firestore
-   
-    //code
+    static func setUserDefaults(userDictionary:[String:Any]?){
+        guard let userDictionary = userDictionary else {return}
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_USERNAME], forKey: Constants.USERDEFAULTS_USERNAME)
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_PASSWORD], forKey: Constants.USERDEFAULTS_PASSWORD)
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_USERID], forKey: Constants.USERDEFAULTS_USERID)
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_FIRSTNAME], forKey: Constants.USERDEFAULTS_FIRSTNAME)
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_LASTNAME], forKey: Constants.USERDEFAULTS_LASTNAME)
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_USERCONTACTNUMBER], forKey: Constants.USERDEFAULTS_USERCONTACTNUMBER)
+        userDefaults.setValue(userDictionary[Constants.USERDEFAULTS_USERADDRESS], forKey: Constants.USERDEFAULTS_USERADDRESS)
+        
+    }
+    
+    
     
     // Function for Show Message
     static func showMessage(title: String?, message: String?) -> UIAlertController{

@@ -38,7 +38,10 @@ class Constants{
         static let ACCOUNT_INFO_PARAMS = [ACCOUNT_PASSWORD_PARAM,ACCOUNT_USER_FIRST_NAME_PARAM,ACCOUNT_USER_LAST_NAME_PARAM,ACCOUNT_USER_ADDRESS_PARAM,ACCOUNT_USER_CONTACT_NUMBER_PARAM]
         static let ACCOUNT_PARAM_SECTION_HEADER = "Account"
         static let ACCOUNT_SIGNOUT_SECTION_HEADER = "Signout"
-
+    
+    //Constant for Firestore
+    static let FIRE_STORE_USER_COLLECTION_NAME = "USERS"
+    
     }
 
 //User Defaults
@@ -49,6 +52,7 @@ extension Constants{
     static let USERDEFAULTS_FIRSTNAME = "FisrtName"
     static let USERDEFAULTS_LASTNAME = "LastName"
    static let USERDEFAULTS_USERADDRESS="UserAddress"
+    //static let USERDEFAULTS_
     static let USERDEFAULTS_USERCONTACTNUMBER="UserContactNumber"
 }
 

@@ -71,7 +71,13 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
     
     //MARK:- Presenting FormController Modally
     //code required
-    
+    func showFormController(indexPath: IndexPath){
+        let storyBoard = UIStoryboard(name: "FormStoryboard", bundle: .main)
+        let formViewController = storyboard?.instantiateViewController(identifier: FormViewController.STORYBOARD_IDENTIFIER) as! FormViewController
+        formViewController.titleLabel = accountParams[indexPath.row]
+        formViewController.responseDelegate = self
+        present(formViewController, animated: true, completion: nil)
+    }
     
     // Function for Getting User Information
     func getUserInfo(titleLabel:String) -> String? {
@@ -159,7 +165,7 @@ extension AccountDetailsViewController: ResponseDelegate{
     func onUpdateResponse(status: Bool, updateField: String?) {
         if status{
             guard let updateField = updateField else{ return}
-            //print(Utilities.userFirstName)
+           // print(Utilities.userFirstName)
             present(Utilities.showMessage(title: Constants.SUCCESS, message: "\(updateField) Update Successful"), animated: true, completion: nil)
         } else{
             
