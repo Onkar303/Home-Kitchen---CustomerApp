@@ -10,4 +10,5 @@ import UIKit
 
 class DishesCollectionViewCell:UICollectionViewCell{
     static let CELL_IDENTIFIER = "dishesCell"
+    @IBOutlet weak var dishNameLabel: UILabel!
 }

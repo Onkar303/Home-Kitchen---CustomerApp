@@ -83,9 +83,10 @@ class KitchenViewController:UIViewController{
     
     
     //MARK:- Segue To Dishes View Controller
-    func segueToDishesViewController(){
+    func segueToDishesViewController(indexPath:IndexPath){
         let storyBoard = UIStoryboard(name: "DishesStoryboard", bundle: .main)
         let dishesViewController = storyBoard.instantiateViewController(identifier:DishesViewController.STORYBOARD_IDENTIFIER) as! DishesViewController
+        dishesViewController.homeKitchen  = kitchens[indexPath.row]
         self.navigationController?.pushViewController(dishesViewController, animated: true)
         
     }
@@ -110,7 +111,7 @@ extension KitchenViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        segueToDishesViewController()
+        segueToDishesViewController(indexPath: indexPath)
     }
     
     

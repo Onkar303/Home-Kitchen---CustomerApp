@@ -40,6 +40,7 @@
 		42B9D3492564DD4C0082BE46 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3482564DD4C0082BE46 /* AddToCartViewController.swift */; };
 		42B9D34E2564DD5B0082BE46 /* AddToCartStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9D34D2564DD5B0082BE46 /* AddToCartStoryboard.storyboard */; };
 		42B9D3542564DE220082BE46 /* DishesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3532564DE220082BE46 /* DishesCollectionViewCell.swift */; };
+		42B9D35C2564E0540082BE46 /* DishInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D35B2564E0540082BE46 /* DishInformation.swift */; };
 		7D3665227381F45367236BA8 /* Pods_CustomerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359069E839105CC5C954976A /* Pods_CustomerAppTests.framework */; };
 		823FCA44D29556D971818666 /* Pods_CustomerApp_CustomerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */; };
 		BE96054C2563F1A000C2F4D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */; };
@@ -110,6 +111,7 @@
 		42B9D3482564DD4C0082BE46 /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		42B9D34D2564DD5B0082BE46 /* AddToCartStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddToCartStoryboard.storyboard; sourceTree = "<group>"; };
 		42B9D3532564DE220082BE46 /* DishesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishesCollectionViewCell.swift; sourceTree = "<group>"; };
+		42B9D35B2564E0540082BE46 /* DishInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishInformation.swift; sourceTree = "<group>"; };
 		7A86BDA62FBB81A1F0666A76 /* Pods-CustomerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.debug.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		92F4419879CD2426AD94045F /* Pods-CustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.release.xcconfig"; sourceTree = "<group>"; };
 		9EC8E74B5AA508520A1AFE75 /* Pods-CustomerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				42B9D3292564CE5D0082BE46 /* HomeKitchen.swift */,
+				42B9D35B2564E0540082BE46 /* DishInformation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				42B9D3352564DA570082BE46 /* DishesViewController.swift in Sources */,
 				42486E85253C1ADD00C3BD41 /* SceneDelegate.swift in Sources */,
 				428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */,
+				42B9D35C2564E0540082BE46 /* DishInformation.swift in Sources */,
 				4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */,
 				4262EFBE254176AD0065537B /* CardView.swift in Sources */,
 				4262F0012541CEE70065537B /* TabBarController.swift in Sources */,
