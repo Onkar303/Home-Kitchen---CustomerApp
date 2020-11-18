@@ -50,3 +50,4 @@ class HomeKitchen:NSObject,Decodable {
         dictionary["kitchenImageURL"] = kitchenImageURL
         return dictionary
     }
+}

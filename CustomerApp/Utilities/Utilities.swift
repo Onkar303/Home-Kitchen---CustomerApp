@@ -10,13 +10,13 @@ import Foundation
 import  CryptoKit
 
 class Utilities{
-   
+    
     static let userId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERID)
     
     static let userFirstName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_FIRSTNAME)
     
     static let userLastName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_LASTNAME)
-   static let userAddress = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERADDRESS)
+    static let userAddress = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERADDRESS)
     static let userContactNumber = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERCONTACTNUMBER)
     
     //Function to save the userid and password inside the app
@@ -30,12 +30,12 @@ class Utilities{
         userDefaults.setValue(email, forKey: Constants.USERDEFAULTS_USERNAME)
         userDefaults.setValue(password, forKey: Constants.USERDEFAULTS_PASSWORD)
         userDefaults.setValue(MD5(string:email+password),forKey:Constants.USERDEFAULTS_USERID)
-       }
+    }
     //Retriving the hash
     static func MD5(string: String) -> String {
         let digest = Insecure.MD5.hash(data: string.data(using: .utf8) ?? Data())
         return digest.map {
-                String(format: "%02hhx", $0)
+            String(format: "%02hhx", $0)
         }.joined()
     }
     
@@ -78,4 +78,12 @@ class Utilities{
     
     
     
+}
+
+extension UIImageView{
+    
+    func setRounded(){
+        self.clipsToBounds = true
+        self.layer.cornerRadius = self.frame.width/2
+    }
 }
