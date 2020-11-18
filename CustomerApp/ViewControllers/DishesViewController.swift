@@ -12,10 +12,11 @@ import FirebaseFirestore
 class DishesViewController:UIViewController{
     
     static let STORYBOARD_IDENTIFIER = "DishesViewController"
-    @IBOutlet weak var dishesCollectionView: UICollectionView!
+    @IBOutlet weak var dishesTableView: UITableView!
     var homeKitchen:HomeKitchen?
     var kitchenDishes = [DishInformation]()
     var fireStore:Firestore?
+    var itemsPerRow = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,8 @@ class DishesViewController:UIViewController{
     
     //MARK:- Attach Delegate
     func attachDelegate(){
-        dishesCollectionView.delegate = self
-        dishesCollectionView.dataSource = self
+        dishesTableView.delegate = self
+        dishesTableView.dataSource = self
     }
     
     //MARK:- Configure Firebase
@@ -40,14 +41,18 @@ class DishesViewController:UIViewController{
     
     //MARK:- Configure UI
     func configureUI(){
-        self.title = "dishes"
-//        let searchController = UISearchController(searchResultsController: nil)
-//        searchController.obscuresBackgroundDuringPresentation = false
-//
-//        self.navigationItem.searchController = searchController
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.title = "Dishes"
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         
+        searchController.searchResultsUpdater = self
 
+        
+        self.navigationItem.searchController = searchController
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        
     }
     
     
@@ -56,7 +61,7 @@ class DishesViewController:UIViewController{
         kitchenDishes.removeAll()
         guard let collectionID = homeKitchen?.kitchenDishesCollectionReference else {return}
         fireStore?.collection(collectionID).getDocuments(completion: { (querySnapShot, error) in
-
+            
             if let error = error {
                 print("error fetching dishes \(error)")
                 return
@@ -73,35 +78,59 @@ class DishesViewController:UIViewController{
             })
             
             DispatchQueue.main.async {
-                self.dishesCollectionView.reloadData()
+                self.dishesTableView.reloadData()
             }
         })
+    }
+    
+    
+    
+    //MARK:- Add to cart view controller
+    func segueAddToCartViewcontroller(indexPath:IndexPath){
+            
+        let storyboard = UIStoryboard(name:"AddToCartStoryboard", bundle: .main)
+        let addToCartViewController = storyboard.instantiateViewController(identifier: AddToCartViewController.STORYBOARD_IDENTIFIER) as! AddToCartViewController
         
+        addToCartViewController.dishInformation = kitchenDishes[indexPath.row]
         
+        self.navigationController?.pushViewController(addToCartViewController, animated: true)
     }
 }
 
 //MARK:- Handling Collection View
-extension DishesViewController:UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension DishesViewController:UITableViewDelegate,UITableViewDataSource
 {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return kitchenDishes.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier:DishesCollectionViewCell.CELL_IDENTIFIER, for: indexPath) as! DishesCollectionViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      
+        let cell = tableView.dequeueReusableCell(withIdentifier:DishesTableViewCell.CELL_IDENTIFIER, for: indexPath) as! DishesTableViewCell
         
         cell.dishNameLabel.text = kitchenDishes[indexPath.row].title
-        
+        Utilities.loadImage(url:kitchenDishes[indexPath.row].image, imageView: cell.dishImageView)
+        cell.dishImageView.setRounded()
+        cell.priceLabel.text = "$10"
+    
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let width = view.frame.width*0.95
-        let height = view.frame.height * 0.4
-        
-        return CGSize(width: width , height: height)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        segueAddToCartViewcontroller(indexPath: indexPath)
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        let height = view.frame.height/4
+//        return CGFloat(height)
+//        
+//    }
+
+}
+
+extension DishesViewController:UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+        print(searchController.searchBar.text)
     }
     
     

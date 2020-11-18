@@ -11,10 +11,11 @@ import  CryptoKit
 
 class Utilities{
     
+    
+    static var dishToOrder = [DishToOrder]()
+    
     static let userId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERID)
-    
     static let userFirstName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_FIRSTNAME)
-    
     static let userLastName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_LASTNAME)
     static let userAddress = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERADDRESS)
     static let userContactNumber = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERCONTACTNUMBER)
@@ -76,6 +77,30 @@ class Utilities{
         userDefaults.removeObject(forKey: Constants.USERDEFAULTS_PASSWORD)
     }
     
+    
+    
+    static func loadImage(url:String?,imageView:UIImageView?){
+        guard let url = url else {return}
+        guard let imageView = imageView else {return}
+        
+        URLSession.shared.dataTask(with: URL(string:url)!) { (data, urlResponse, error) in
+            if let error = error {
+                print("error loading the view \(error)")
+                return
+            }
+            
+            guard let data = data else {return}
+            DispatchQueue.main.async {
+                imageView.image = UIImage(data: data)
+            }
+        }.resume()
+        
+    }
+    
+    static func removeHtmlTags(text:String?) ->String{
+        guard let text = text else {return ""}
+        return text.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+    }
     
     
 }

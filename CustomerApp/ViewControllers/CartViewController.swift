@@ -13,6 +13,17 @@ class CartViewController:UIViewController{
     static let STORYBOARD_IDENTIFIER = "CartViewController"
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
+        
+    }
+    
+    //MARK:- configure UI
+    func configureUI(){
+        
+        self.title = "CART"
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }

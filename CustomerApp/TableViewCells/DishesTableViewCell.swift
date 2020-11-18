@@ -8,7 +8,10 @@
 import Foundation
 import UIKit
 
-class DishesCollectionViewCell:UICollectionViewCell{
+class DishesTableViewCell:UITableViewCell{
     static let CELL_IDENTIFIER = "dishesCell"
     @IBOutlet weak var dishNameLabel: UILabel!
+    @IBOutlet weak var dishImageView: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
+    
 }

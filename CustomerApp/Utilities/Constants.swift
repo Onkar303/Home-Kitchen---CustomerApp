@@ -8,7 +8,7 @@
 import Foundation
 
 class Constants{
-    static let CORNER_RADIUS:Int = 20
+    static let CORNER_RADIUS:Int = 10
     
     static let BASE_URL = "https://api.spoonacular.com/recipes/complexSearch"
     static let KEY_PARAMETER = "?apiKey="
