@@ -34,6 +34,15 @@ class HomeViewController:UIViewController{
         navigationItem.largeTitleDisplayMode = .automatic
     }
     
+    func sequeToKitchenViewController(){
+        
+        let storyBoard = UIStoryboard(name: "KitchenStoryboard", bundle: .main)
+        let kitchenViewController = storyBoard.instantiateViewController(identifier:KitchenViewController.STORYBOARD_IDENTIFIER)
+        
+        self.navigationController?.pushViewController(kitchenViewController, animated: true)
+        
+    }
+    
     
 }
 
@@ -59,6 +68,7 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        sequeToKitchenViewController()
     }
     
     

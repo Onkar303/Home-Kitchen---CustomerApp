@@ -84,15 +84,16 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
         if titleLabel == Constants.ACCOUNT_PASSWORD_PARAM{
             return "*******"
         }else if titleLabel == Constants.ACCOUNT_USER_FIRST_NAME_PARAM{
-            return Utilities.userFirstName
+            //return Utilities.userFirstName
         } else if titleLabel == Constants.ACCOUNT_USER_LAST_NAME_PARAM {
-            return Utilities.userLastName
+            //return Utilities.userLastName
         } else if titleLabel == Constants.ACCOUNT_USER_CONTACT_NUMBER_PARAM {
-            return Utilities.userContactNumber
+            //return Utilities.userContactNumber
         } else {
-            return Utilities.userAddress
+            return ""
         }
-        
+     
+        return ""
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -166,7 +167,7 @@ extension AccountDetailsViewController: ResponseDelegate{
         if status{
             guard let updateField = updateField else{ return}
            // print(Utilities.userFirstName)
-            present(Utilities.showMessage(title: Constants.SUCCESS, message: "\(updateField) Update Successful"), animated: true, completion: nil)
+          //  present(Utilities.showMessage(title: Constants.SUCCESS, message: "\(updateField) Update Successful"), animated: true, completion: nil)
         } else{
             
         }

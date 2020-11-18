@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Kitchen View Controller-->
+        <scene sceneID="0O1-fs-WEM">
+            <objects>
+                <viewController storyboardIdentifier="KitchenViewController" id="Xi2-Yj-txs" customClass="KitchenViewController" customModule="CustomerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YE6-u8-gpV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R4D-5E-oOX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KitchenCell" rowHeight="162" id="KZu-Pt-KsR" customClass="KitchenTableViewCell" customModule="CustomerApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="162"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KZu-Pt-KsR" id="LdE-Da-iGs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uKI-F3-tYp">
+                                                    <rect key="frame" x="20" y="10" width="140" height="140"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="uKI-F3-tYp" secondAttribute="height" multiplier="1:1" id="Ft8-k7-kZy"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2T-dr-RaD">
+                                                    <rect key="frame" x="175.5" y="31" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8PP-5J-DyZ">
+                                                    <rect key="frame" x="175.5" y="60" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="E2T-dr-RaD" firstAttribute="leading" secondItem="uKI-F3-tYp" secondAttribute="trailing" constant="15.5" id="0K0-os-3CN"/>
+                                                <constraint firstItem="uKI-F3-tYp" firstAttribute="top" secondItem="LdE-Da-iGs" secondAttribute="top" constant="10" id="8Bm-7K-5Pl"/>
+                                                <constraint firstItem="8PP-5J-DyZ" firstAttribute="leading" secondItem="E2T-dr-RaD" secondAttribute="leading" id="Beo-E2-MsM"/>
+                                                <constraint firstItem="uKI-F3-tYp" firstAttribute="leading" secondItem="LdE-Da-iGs" secondAttribute="leading" constant="20" symbolic="YES" id="Hlf-Y0-hNU"/>
+                                                <constraint firstItem="uKI-F3-tYp" firstAttribute="width" secondItem="LdE-Da-iGs" secondAttribute="height" multiplier="70:81" id="Xd5-sY-SZQ"/>
+                                                <constraint firstItem="8PP-5J-DyZ" firstAttribute="top" secondItem="E2T-dr-RaD" secondAttribute="bottom" constant="8" symbolic="YES" id="z7U-ME-MFd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="kitchenImageView" destination="uKI-F3-tYp" id="x7f-Ds-D7U"/>
+                                            <outlet property="kitchenNameLabel" destination="8PP-5J-DyZ" id="vP6-VH-6Kq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0YH-kB-ucz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R4D-5E-oOX" firstAttribute="leading" secondItem="0YH-kB-ucz" secondAttribute="leading" id="7RZ-Hq-r9E"/>
+                            <constraint firstItem="0YH-kB-ucz" firstAttribute="bottom" secondItem="R4D-5E-oOX" secondAttribute="bottom" id="l4L-d8-jw8"/>
+                            <constraint firstItem="0YH-kB-ucz" firstAttribute="trailing" secondItem="R4D-5E-oOX" secondAttribute="trailing" id="ta1-jw-BvF"/>
+                            <constraint firstItem="R4D-5E-oOX" firstAttribute="top" secondItem="0YH-kB-ucz" secondAttribute="top" id="vAC-Oa-FRf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="kitchenTableView" destination="R4D-5E-oOX" id="0SA-gd-ZSl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IMw-D6-dB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-271.01449275362319" y="3.3482142857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

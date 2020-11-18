@@ -22,7 +22,7 @@ class FormViewController: UIViewController{
     var firebaseAuth:Auth?
     var firesStore:Firestore?
     var responseDelegate:ResponseDelegate?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,38 +69,38 @@ class FormViewController: UIViewController{
     
     // Function to update User
     func updateUser(updateField: String?, text: String){
-        guard let userID = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERID), !userID.isEmpty else {return}
-        let docReference = firesStore?.collection(Constants.FIRE_STORE_USER_COLLECTION_NAME).document(userID)
-        
-        docReference?.updateData([updateField: text], completion: {
-            (error) in
-            if let error = error {
-                print("error updating data \(error)")
-            }else{
-                self.dismiss(animated: true, completion: nil)
-                self.updateUserInfo { (isUpdated) in
-                    if isUpdated{
-                        self.responseDelegate?.onUpdateResponse(status: isUpdated, updateField: updateField)
-                    }
-                }
-            }
-        })
-}
+//        guard let userID = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERID), !userID.isEmpty else {return}
+//        let docReference = firesStore?.collection(Constants.FIRE_STORE_USER_COLLECTION_NAME).document(userID)
+//
+//        docReference?.updateData([updateField: text], completion: {
+//            (error) in
+//            if let error = error {
+//                print("error updating data \(error)")
+//            }else{
+//                self.dismiss(animated: true, completion: nil)
+//                self.updateUserInfo { (isUpdated) in
+//                    if isUpdated{
+//                        self.responseDelegate?.onUpdateResponse(status: isUpdated, updateField: updateField)
+//                    }
+//                }
+//            }
+//        })
+    }
     
     //function to update user information
     func updateUserInfo(completion: @escaping (Bool)->Void){
-        guard let userID = Utilities.userId else {return}
-        let docReference = firesStore?.collection(Constants.FIRE_STORE_USER_COLLECTION_NAME).document(userID)
-        docReference?.getDocument(completion: {(docSnapShot, error)
-            in
-            if let error = error{
-                print("error in fetch userDocument \(error)")
-                return completion(false)
-            }
-            let userData = docSnapShot?.data()
-            Utilities.setUserDefaults(userDictionary: docSnapShot?.data())
-            return completion(true)
-        })
+//        guard let userID = Utilities.userId else {return}
+//        let docReference = firesStore?.collection(Constants.FIRE_STORE_USER_COLLECTION_NAME).document(userID)
+//        docReference?.getDocument(completion: {(docSnapShot, error)
+//            in
+//            if let error = error{
+//                print("error in fetch userDocument \(error)")
+//                return completion(false)
+//            }
+//            let userData = docSnapShot?.data()
+//            Utilities.setUserDefaults(userDictionary: docSnapShot?.data())
+//            return completion(true)
+//        })
     }
     
     
