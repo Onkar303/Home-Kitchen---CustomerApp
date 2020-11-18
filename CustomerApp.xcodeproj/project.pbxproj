@@ -32,7 +32,7 @@
 		42B9D30A2564BCE00082BE46 /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3092564BCE00082BE46 /* KitchenViewController.swift */; };
 		42B9D30F2564BCF30082BE46 /* KitchenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9D30E2564BCF30082BE46 /* KitchenStoryboard.storyboard */; };
 		42B9D3172564C3930082BE46 /* KitchenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3162564C3930082BE46 /* KitchenTableViewCell.swift */; };
-		42B9D31C2564CD5F0082BE46 /* HomeKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D31B2564CD5F0082BE46 /* HomeKitchen.swift */; };
+		42B9D32A2564CE5D0082BE46 /* HomeKitchen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3292564CE5D0082BE46 /* HomeKitchen.swift */; };
 		7D3665227381F45367236BA8 /* Pods_CustomerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359069E839105CC5C954976A /* Pods_CustomerAppTests.framework */; };
 		823FCA44D29556D971818666 /* Pods_CustomerApp_CustomerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */; };
 		BE96054C2563F1A000C2F4D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */; };
@@ -95,7 +95,7 @@
 		42B9D3092564BCE00082BE46 /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
 		42B9D30E2564BCF30082BE46 /* KitchenStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KitchenStoryboard.storyboard; sourceTree = "<group>"; };
 		42B9D3162564C3930082BE46 /* KitchenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTableViewCell.swift; sourceTree = "<group>"; };
-		42B9D31B2564CD5F0082BE46 /* HomeKitchen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeKitchen.swift; path = CustomerApp/TableViewCells/HomeKitchen.swift; sourceTree = SOURCE_ROOT; };
+		42B9D3292564CE5D0082BE46 /* HomeKitchen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeKitchen.swift; sourceTree = "<group>"; };
 		7A86BDA62FBB81A1F0666A76 /* Pods-CustomerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.debug.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		92F4419879CD2426AD94045F /* Pods-CustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.release.xcconfig"; sourceTree = "<group>"; };
 		9EC8E74B5AA508520A1AFE75 /* Pods-CustomerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		42486E81253C1ADD00C3BD41 /* CustomerApp */ = {
 			isa = PBXGroup;
 			children = (
-				BE9605592563F4CC00C2F4D4 /* Models */,
+				42B9D3282564CE510082BE46 /* Models */,
 				BE9605532563F2D500C2F4D4 /* Delegates */,
 				BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */,
 				4262EFB42541756E0065537B /* TableViewCells */,
@@ -208,6 +208,14 @@
 				42B9D3162564C3930082BE46 /* KitchenTableViewCell.swift */,
 			);
 			path = TableViewCells;
+			sourceTree = "<group>";
+		};
+		42B9D3282564CE510082BE46 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				42B9D3292564CE5D0082BE46 /* HomeKitchen.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		42FF4910253DF83700E24911 /* ViewControllers */ = {
@@ -260,14 +268,6 @@
 				BE9605542563F30F00C2F4D4 /* ResponseDelegate.swift */,
 			);
 			path = Delegates;
-			sourceTree = "<group>";
-		};
-		BE9605592563F4CC00C2F4D4 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				42B9D31B2564CD5F0082BE46 /* HomeKitchen.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		E2E2A1D86A5F0EC6701BFA12 /* Frameworks */ = {
@@ -540,7 +540,7 @@
 				4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */,
 				4262EFBE254176AD0065537B /* CardView.swift in Sources */,
 				4262F0012541CEE70065537B /* TabBarController.swift in Sources */,
-				42B9D31C2564CD5F0082BE46 /* HomeKitchen.swift in Sources */,
+				42B9D32A2564CE5D0082BE46 /* HomeKitchen.swift in Sources */,
 				BED9F02E2562460700C2C592 /* AccountTableViewCell.swift in Sources */,
 				42B9D3172564C3930082BE46 /* KitchenTableViewCell.swift in Sources */,
 				428799132540893500E83CEF /* HomeViewController.swift in Sources */,
