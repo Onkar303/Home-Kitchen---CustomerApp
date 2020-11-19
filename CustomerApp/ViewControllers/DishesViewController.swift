@@ -87,12 +87,11 @@ class DishesViewController:UIViewController{
     
     //MARK:- Add to cart view controller
     func segueAddToCartViewcontroller(indexPath:IndexPath){
-            
         let storyboard = UIStoryboard(name:"AddToCartStoryboard", bundle: .main)
         let addToCartViewController = storyboard.instantiateViewController(identifier: AddToCartViewController.STORYBOARD_IDENTIFIER) as! AddToCartViewController
-        
         addToCartViewController.dishInformation = kitchenDishes[indexPath.row]
-        
+        addToCartViewController.homeKitchen = homeKitchen
+        addToCartViewController.dishAddedResponseDelegate = self
         self.navigationController?.pushViewController(addToCartViewController, animated: true)
     }
 }
@@ -113,11 +112,13 @@ extension DishesViewController:UITableViewDelegate,UITableViewDataSource
         cell.dishImageView.setRounded()
         cell.priceLabel.text = "$10"
     
+    
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         segueAddToCartViewcontroller(indexPath: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -132,6 +133,15 @@ extension DishesViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         print(searchController.searchBar.text)
     }
-    
-    
+}
+
+extension DishesViewController:DishAddResponseDelegate{
+    func dishAddedOrUpdated(didAdd: Bool, didUpdate: Bool) {
+        if didAdd {
+            present(Utilities.showMessage(title: "Success!", message:"Dish Added To Cart !"), animated: true, completion: nil)
+        }
+        if didUpdate {
+            present(Utilities.showMessage(title: "Success!", message:"Dish Updated !"), animated: true, completion: nil)
+        }
+    }
 }

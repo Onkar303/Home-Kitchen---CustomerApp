@@ -11,5 +11,5 @@ class DishToOrder{
     var dishId:Int?
     var dishName:String?
     var dishQuantity:Int?
-    var dishPrice:Int?
+    var dishPrice:Double?
 }

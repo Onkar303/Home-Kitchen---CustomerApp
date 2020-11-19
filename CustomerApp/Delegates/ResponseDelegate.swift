@@ -9,7 +9,9 @@ import Foundation
 
 
 protocol ResponseDelegate:AnyObject {
-    
     func onUpdateResponse(status:Bool,updateField:String?)
-    
+}
+
+protocol DishAddResponseDelegate:AnyObject{
+    func dishAddedOrUpdated(didAdd:Bool,didUpdate:Bool)
 }

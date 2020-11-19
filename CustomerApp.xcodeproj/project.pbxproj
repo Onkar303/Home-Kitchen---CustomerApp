@@ -45,6 +45,10 @@
 		42B9D36D256573660082BE46 /* SummaryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9D36C256573660082BE46 /* SummaryStoryboard.storyboard */; };
 		42B9D37225657B840082BE46 /* DishToOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D37125657B840082BE46 /* DishToOrder.swift */; };
 		42B9D37825657BF10082BE46 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D37725657BF10082BE46 /* Order.swift */; };
+		42D377E8256634E300AA6812 /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D377E7256634E300AA6812 /* CartTableViewCell.swift */; };
+		42D377ED25669EEC00AA6812 /* CartTotalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D377EC25669EEC00AA6812 /* CartTotalTableViewCell.swift */; };
+		42D377F22566A25C00AA6812 /* CartTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D377F12566A25C00AA6812 /* CartTitleTableViewCell.swift */; };
+		42D377FF2566D6A000AA6812 /* CartOrderActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D377FE2566D6A000AA6812 /* CartOrderActionTableViewCell.swift */; };
 		7D3665227381F45367236BA8 /* Pods_CustomerAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 359069E839105CC5C954976A /* Pods_CustomerAppTests.framework */; };
 		823FCA44D29556D971818666 /* Pods_CustomerApp_CustomerAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3D05D630ADA8F395C9F1A47 /* Pods_CustomerApp_CustomerAppUITests.framework */; };
 		BE96054C2563F1A000C2F4D4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BE96054B2563F1A000C2F4D4 /* GoogleService-Info.plist */; };
@@ -120,6 +124,10 @@
 		42B9D36C256573660082BE46 /* SummaryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SummaryStoryboard.storyboard; sourceTree = "<group>"; };
 		42B9D37125657B840082BE46 /* DishToOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishToOrder.swift; sourceTree = "<group>"; };
 		42B9D37725657BF10082BE46 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		42D377E7256634E300AA6812 /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		42D377EC25669EEC00AA6812 /* CartTotalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTotalTableViewCell.swift; sourceTree = "<group>"; };
+		42D377F12566A25C00AA6812 /* CartTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTitleTableViewCell.swift; sourceTree = "<group>"; };
+		42D377FE2566D6A000AA6812 /* CartOrderActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartOrderActionTableViewCell.swift; sourceTree = "<group>"; };
 		7A86BDA62FBB81A1F0666A76 /* Pods-CustomerApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.debug.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.debug.xcconfig"; sourceTree = "<group>"; };
 		92F4419879CD2426AD94045F /* Pods-CustomerApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerApp.release.xcconfig"; path = "Target Support Files/Pods-CustomerApp/Pods-CustomerApp.release.xcconfig"; sourceTree = "<group>"; };
 		9EC8E74B5AA508520A1AFE75 /* Pods-CustomerAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CustomerAppTests.debug.xcconfig"; path = "Target Support Files/Pods-CustomerAppTests/Pods-CustomerAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +240,10 @@
 				4262EFC7254183890065537B /* HomeTableViewCell.swift */,
 				BED9F02D2562460700C2C592 /* AccountTableViewCell.swift */,
 				42B9D3162564C3930082BE46 /* KitchenTableViewCell.swift */,
+				42D377E7256634E300AA6812 /* CartTableViewCell.swift */,
+				42D377EC25669EEC00AA6812 /* CartTotalTableViewCell.swift */,
+				42D377F12566A25C00AA6812 /* CartTitleTableViewCell.swift */,
+				42D377FE2566D6A000AA6812 /* CartOrderActionTableViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -575,6 +587,7 @@
 			files = (
 				4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */,
 				42B9D365256573240082BE46 /* SummaryViewController.swift in Sources */,
+				42D377E8256634E300AA6812 /* CartTableViewCell.swift in Sources */,
 				42B9D30A2564BCE00082BE46 /* KitchenViewController.swift in Sources */,
 				42486E87253C1ADD00C3BD41 /* LoginViewController.swift in Sources */,
 				BE9605552563F30F00C2F4D4 /* ResponseDelegate.swift in Sources */,
@@ -590,7 +603,9 @@
 				42486E85253C1ADD00C3BD41 /* SceneDelegate.swift in Sources */,
 				428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */,
 				42B9D35C2564E0540082BE46 /* DishInformation.swift in Sources */,
+				42D377F22566A25C00AA6812 /* CartTitleTableViewCell.swift in Sources */,
 				4262EFC8254183890065537B /* HomeTableViewCell.swift in Sources */,
+				42D377FF2566D6A000AA6812 /* CartOrderActionTableViewCell.swift in Sources */,
 				42B9D37225657B840082BE46 /* DishToOrder.swift in Sources */,
 				4262EFBE254176AD0065537B /* CardView.swift in Sources */,
 				4262F0012541CEE70065537B /* TabBarController.swift in Sources */,
@@ -600,6 +615,7 @@
 				42B9D3172564C3930082BE46 /* KitchenTableViewCell.swift in Sources */,
 				42B9D3492564DD4C0082BE46 /* AddToCartViewController.swift in Sources */,
 				428799132540893500E83CEF /* HomeViewController.swift in Sources */,
+				42D377ED25669EEC00AA6812 /* CartTotalTableViewCell.swift in Sources */,
 				4262EFC3254177030065537B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

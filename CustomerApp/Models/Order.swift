@@ -12,5 +12,7 @@ class Order{
     var contactNumber:Int?
     var contactAddress:String?
     var totalAmount:Int?
+    var kitchenName:String?
+    var kitchenId:String?
     var dishesToOrder:[DishToOrder]?
 }

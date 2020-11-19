@@ -12,7 +12,7 @@ import  CryptoKit
 class Utilities{
     
     
-    static var dishToOrder = [DishToOrder]()
+    static var dishesToOrder = [DishToOrder]()
     
     static let userId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERID)
     static let userFirstName = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_FIRSTNAME)
@@ -57,8 +57,44 @@ class Utilities{
     }
     
     
+    //MARK:- Adding Dish to orders list
+    static func addDishToOrdersList(dishToOrder:DishToOrder?,completion: @escaping (Bool,DishToOrder?) -> Void){
+        guard let dishToOrder = dishToOrder else {return}
+        if !checkIfDishToOrderExists(dishId: dishToOrder.dishId){
+            dishesToOrder.append(dishToOrder)
+            completion(true,nil)
+        } else {
+            completion(false,getDishToOrder(dishId: dishToOrder.dishId))
+        }
+    }
     
-    // Function for Show Message
+    //MARK:- Check if Order Exists
+    static func checkIfDishToOrderExists(dishId:Int?) -> Bool{
+        guard let dishId = dishId else {return false}
+        var isPresent = false
+        dishesToOrder.forEach { (dishToOrder) in
+            if dishToOrder.dishId == dishId {
+                isPresent = true
+            }
+        }
+        return isPresent
+    }
+    
+    //MARK:- Retrive Dish To Order
+    static func getDishToOrder(dishId:Int?) ->  DishToOrder?{
+        guard let dishId = dishId else {return nil}
+        var dishToReturn:DishToOrder?
+        dishesToOrder.forEach { (dish) in
+            if dish.dishId == dishId {
+                dishToReturn = dish
+            }
+        }
+        return dishToReturn
+    }
+    
+    
+    
+    //MARK:- Function for Show Message
     static func showMessage(title: String?, message: String?) -> UIAlertController{
         guard let title = title else { return UIAlertController()}
         guard let message = message else{return UIAlertController()}
