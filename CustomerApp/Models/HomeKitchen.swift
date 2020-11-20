@@ -15,10 +15,11 @@ class HomeKitchen:NSObject,Decodable {
     var kitchenContactNumber:String?
     var foodHandlingCertificate:String?
     var foodAndHygineCertificate:String?
-    var kitchenId:String?
+    var kitchenID:String?
     var kitchenDishesCollectionReference:String?
     var kitchenOrdersCollectionReference:String?
     var kitchenImageURL:String?
+    var kitchenCuisine:String?
     
     
     enum Keys:String,CodingKey {
@@ -28,10 +29,11 @@ class HomeKitchen:NSObject,Decodable {
         case kitchenContactNumber
         case foodHandlingCertificate
         case foodAndHygineCertificate
-        case kitchenId
+        case kitchenID
         case kitchenDishesCollectionReference
         case kitchenOrdersCollectionReference
         case kitchenImageURL
+        case kitchenCuisine
     }
     
     
@@ -44,10 +46,11 @@ class HomeKitchen:NSObject,Decodable {
         dictionary["kitchenContactNumber"] = kitchenContactNumber
         dictionary["foodHandlingCertificate"] = foodHandlingCertificate
         dictionary["foodAndHygineCertificate"] = foodAndHygineCertificate
-        dictionary["kitchenID"] = kitchenId
+        dictionary["kitchenID"] = kitchenID
         dictionary["kitchenDishesCollectionReference"] = kitchenDishesCollectionReference
         dictionary["kitchenOrdersCollectionReference"] = kitchenOrdersCollectionReference
         dictionary["kitchenImageURL"] = kitchenImageURL
+        dictionary["kitchenCuisine"] = kitchenCuisine
         return dictionary
     }
 }

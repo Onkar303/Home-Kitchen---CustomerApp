@@ -20,6 +20,7 @@ class DishInformation:NSObject,Decodable{
     var dairyFree:Bool?
     var veryPopular:Bool?
     var documentID:String?
+    var price:Int?
     
     
     enum Keys:String,CodingKey {
@@ -34,6 +35,7 @@ class DishInformation:NSObject,Decodable{
         case vegan
         case dairyFree
         case veryPopular
+        case price
     }
     
     required init(from decoder: Decoder) throws {
@@ -50,6 +52,7 @@ class DishInformation:NSObject,Decodable{
         vegan = try? dishContainer.decode(Bool.self, forKey: .vegan)
         dairyFree = try? dishContainer.decode(Bool.self, forKey: .dairyFree)
         veryPopular = try? dishContainer.decode(Bool.self, forKey: .veryPopular)
+        price = try? dishContainer.decode(Int.self, forKey: .price)
 
     }
     
@@ -67,6 +70,7 @@ class DishInformation:NSObject,Decodable{
         dictionary["vegan"] = vegan
         dictionary["dairyFree"] = dairyFree
         dictionary["veryPolular"] = veryPopular
+        dictionary["price"] = price
         
         return dictionary
     }

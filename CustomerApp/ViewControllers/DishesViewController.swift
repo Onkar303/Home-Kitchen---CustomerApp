@@ -15,6 +15,7 @@ class DishesViewController:UIViewController{
     @IBOutlet weak var dishesTableView: UITableView!
     var homeKitchen:HomeKitchen?
     var kitchenDishes = [DishInformation]()
+    var filteredKitchenDishes = [DishInformation]()
     var fireStore:Firestore?
     var itemsPerRow = 3
     
@@ -59,6 +60,7 @@ class DishesViewController:UIViewController{
     //MARK:- Fetching All dishes from firebase
     func fetchAllDishes(){
         kitchenDishes.removeAll()
+        filteredKitchenDishes.removeAll()
         guard let collectionID = homeKitchen?.kitchenDishesCollectionReference else {return}
         fireStore?.collection(collectionID).getDocuments(completion: { (querySnapShot, error) in
             
@@ -72,6 +74,7 @@ class DishesViewController:UIViewController{
                     let jsonData = try JSONSerialization.data(withJSONObject: queryData.data(), options: [])
                     let dishInformation = try jsonDecoder.decode(DishInformation.self, from: jsonData)
                     self.kitchenDishes.append(dishInformation)
+                    self.filteredKitchenDishes.append(dishInformation)
                 }catch {
                     print("error adding dishes to array")
                 }
@@ -100,15 +103,15 @@ class DishesViewController:UIViewController{
 extension DishesViewController:UITableViewDelegate,UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return kitchenDishes.count
+        return filteredKitchenDishes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
         let cell = tableView.dequeueReusableCell(withIdentifier:DishesTableViewCell.CELL_IDENTIFIER, for: indexPath) as! DishesTableViewCell
         
-        cell.dishNameLabel.text = kitchenDishes[indexPath.row].title
-        Utilities.loadImage(url:kitchenDishes[indexPath.row].image, imageView: cell.dishImageView)
+        cell.dishNameLabel.text = filteredKitchenDishes[indexPath.row].title
+        Utilities.loadImage(url:filteredKitchenDishes[indexPath.row].image, imageView: cell.dishImageView)
         cell.dishImageView.setRounded()
         cell.priceLabel.text = "$10"
     
@@ -131,7 +134,20 @@ extension DishesViewController:UITableViewDelegate,UITableViewDataSource
 
 extension DishesViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
-        print(searchController.searchBar.text)
+        guard let text = searchController.searchBar.text else {return}
+        filteredKitchenDishes.removeAll()
+        if text.isEmpty {
+            filteredKitchenDishes.append(contentsOf: kitchenDishes)
+        } else {
+            filteredKitchenDishes = kitchenDishes.filter({ (dish) -> Bool in
+                guard let title = dish.title else {return false}
+                if title.contains(text){
+                    return true
+                }
+                return false
+            })
+        }
+        dishesTableView.reloadData()
     }
 }
 

@@ -22,7 +22,8 @@ class CartViewController:UIViewController{
     let TITLE_SECTION = 0
     let DISHES_SECTION = 1
     let TOTAL_SECTION = 2
-    let ACTION_SECTION = 3
+    let ACTION_SECTION_CONFIRM = 3
+    let ACTION_SECTION_CANCEL = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,6 @@ class CartViewController:UIViewController{
     //MARK:- configure UI
     func configureUI(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
         topHandleView.clipsToBounds = true
         topHandleView.layer.cornerRadius = topHandleView.frame.width/10
         
@@ -54,6 +54,12 @@ class CartViewController:UIViewController{
         })
         return total
     }
+    
+    //MARK:-
+    func segueToOrderStatusViewContorller(){
+        
+    }
+    
 }
 
 
@@ -63,15 +69,12 @@ class CartViewController:UIViewController{
 extension CartViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == DISHES_SECTION {
             return dishesToOrder.count
-        }
-        if section == ACTION_SECTION {
-            return orderActions.count
         }
         return 1
     }
@@ -98,14 +101,22 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
             return totalCell
         }
         
-        let actionCell = tableView.dequeueReusableCell(withIdentifier: CartOrderActionTableViewCell.CELL_IDENTIFIER, for: indexPath) as! CartOrderActionTableViewCell
+        if indexPath.section == ACTION_SECTION_CONFIRM {
+            let actionCellConfirm = tableView.dequeueReusableCell(withIdentifier: CartOrderActionTableViewCell.CELL_IDENTIFIER, for: indexPath) as! CartOrderActionTableViewCell
+            
+            actionCellConfirm.cartActionLabel.text = "Confirm"
+            actionCellConfirm.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            actionCellConfirm.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            return actionCellConfirm
+        }
         
-        actionCell.cartActionLabel.text = orderActions[indexPath.row]
-        actionCell.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-        actionCell.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        return actionCell
+        let actionCellCancel = tableView.dequeueReusableCell(withIdentifier: CartOrderActionTableViewCell.CELL_IDENTIFIER, for: indexPath) as! CartOrderActionTableViewCell
         
-     
+        actionCellCancel.cartActionLabel.text = "Cancel"
+        actionCellCancel.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+        actionCellCancel.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        return actionCellCancel
+        
     }
     
     
@@ -116,10 +127,21 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
     //        return 44
     //    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == ACTION_SECTION_CONFIRM {
+            
+        }
+        
+        if indexPath.section == ACTION_SECTION_CANCEL {
+            
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == DISHES_SECTION {
-            return "Your Dishes"
+            return "Dish To Order"
         }
         return ""
     }
@@ -133,7 +155,7 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == ACTION_SECTION {
+        if indexPath.section == DISHES_SECTION {
             return .delete
         } else {
             return .none

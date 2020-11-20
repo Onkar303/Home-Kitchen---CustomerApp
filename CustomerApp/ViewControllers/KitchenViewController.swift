@@ -17,6 +17,7 @@ class KitchenViewController:UIViewController{
     
     @IBOutlet weak var kitchenTableView: UITableView!
     
+    var category:String?
     var fireStore:Firestore?
     var kitchens = [HomeKitchen]()
     
@@ -53,6 +54,17 @@ class KitchenViewController:UIViewController{
     //MARK:- Configure FireStore
     func configureFirebase(){
         fireStore = Firestore.firestore()
+    }
+    
+    
+    //MARK:- Fetching kitchens a particular category
+    func fetchKitchenForCategory(){
+        kitchens.removeAll()
+        fireStore?.collection(Constants.FIRE_STORE_KITCHEN_COLLECTION_NAME).whereField("kitchenCuisine", isEqualTo: category).getDocuments(completion: { (querySnapShot, error) in
+        
+            
+        
+        })
     }
     
     //MARK:- Fetching kitchens

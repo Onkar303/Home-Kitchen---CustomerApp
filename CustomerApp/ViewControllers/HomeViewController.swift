@@ -12,7 +12,9 @@ class HomeViewController:UIViewController{
     
     static let CONTROLLER_IDENTIFIER = "HomeViewController"
     
-    @IBOutlet weak var homeTableView: UITableView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
+    let categories = Constants.SPPONOCULAR_CUISINE_CATEGORY
+        
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,53 +23,50 @@ class HomeViewController:UIViewController{
         customiseView()
     }
     
+    //MARK:- Attaching Delegates
     func attachDelegates(){
-        
-        
-        homeTableView.delegate = self
-        homeTableView.dataSource = self
+        categoryCollectionView.delegate = self
+        categoryCollectionView.dataSource = self
     }
     
+    //MARK:- Changing The View
     func customiseView() {
         self.title = "Categories"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
     }
     
+    //MARK:- Seqgue To KitchenViewController
     func sequeToKitchenViewController(){
-        
         let storyBoard = UIStoryboard(name: "KitchenStoryboard", bundle: .main)
         let kitchenViewController = storyBoard.instantiateViewController(identifier:KitchenViewController.STORYBOARD_IDENTIFIER)
-        
         self.navigationController?.pushViewController(kitchenViewController, animated: true)
-        
     }
-    
-    
 }
 
-extension HomeViewController:UITableViewDelegate,UITableViewDataSource{
-    
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+
+//MARK:- Handling Table View
+extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+            return categories.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.CELL_IDENTIFIER, for: indexPath) as! HomeTableViewCell
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.CELL_IDENTIFIER, for: indexPath) as! CategoryCollectionViewCell
+        cell.categoryLabel.text = categories[indexPath.row]
         return cell
     }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(100)
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.width*0.9
+        let height = view.frame.height*0.4
+        
+        return CGSize(width: width, height: height)
     }
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         sequeToKitchenViewController()
     }
     

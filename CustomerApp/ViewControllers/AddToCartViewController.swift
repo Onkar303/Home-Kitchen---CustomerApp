@@ -98,9 +98,57 @@ class AddToCartViewController:UIViewController{
         }
         
     }
+    
+    
+    
+    //MARK:- Asking for Cart change
+    func askForCartChange(didConfirm: @escaping (Bool)->Void){
+        let alertController = UIAlertController(title: "Alert!", message: "An Order from a different kitchen Exists. If you wish to add a new Order please select confirm", preferredStyle: .alert)
+        let actionConfirm = UIAlertAction(title: "Confirm", style: .default) { (alertAction) in
+            self.removeOrder()
+            didConfirm(true)
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(actionConfirm)
+        alertController.addAction(actionCancel)
+        present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    
+    //MARK:- Remove Order
+    func removeOrder(){
+        Utilities.dishesToOrder.removeAll()
+        Utilities.order.kitchenId = nil
+        Utilities.order.kitchenName = nil
+        Utilities.order.contactName = nil
+        Utilities.order.contactNumber = nil
+        Utilities.order.contactAddress = nil
+        Utilities.order.totalAmount = nil
+        Utilities.order.dishesToOrder = nil
+    }
 
     //MARK:- Handling Add to Cart button action 
     @IBAction func addToCart(_ sender: Any) {
+        if Utilities.checkForSameOrder(homeKitchen: homeKitchen!){
+            addDishToOrder()
+        } else {
+            if Utilities.order.kitchenId == nil {
+                setOrder()
+                addDishToOrder()
+            } else {
+                askForCartChange { (didConfirm) in
+                    if didConfirm {
+                        self.setOrder()
+                        self.addDishToOrder()
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK:- Adding Dish to Order
+    func addDishToOrder(){
         Utilities.addDishToOrdersList(dishToOrder: createDishToOrder()) { [self] (didAdd, dish) in
             if didAdd {
                 self.navigationController?.popViewController(animated: true)
@@ -114,7 +162,14 @@ class AddToCartViewController:UIViewController{
         
     }
     
+    //MARK:- set Order
+    func setOrder(){
+        Utilities.order.kitchenId = homeKitchen?.kitchenID
+        Utilities.order.kitchenName = homeKitchen?.kitchenName
+    }
     
+    
+    // MARK:- GET DIshToOrder idf present
     func getDishToOrderifPresent() -> DishToOrder?{
         var returnDish:DishToOrder?
         Utilities.dishesToOrder.forEach { (dish) in
@@ -126,6 +181,7 @@ class AddToCartViewController:UIViewController{
     }
     
     
+    //MARK:-  Check if DishToOrder is present
     func isDishToOrderPresent() -> Bool {
         var isPresent = false
         Utilities.dishesToOrder.forEach { (dish) in
@@ -137,6 +193,7 @@ class AddToCartViewController:UIViewController{
     }
     
     
+    //MARK:- Creating DishToOrder
     func createDishToOrder() -> DishToOrder?{
         if Int(quantityLabel.text!) == 0 {
             present(Utilities.showMessage(title: "Alert!", message:"Please increase the quantity by 1"), animated: true, completion: nil)
@@ -151,14 +208,12 @@ class AddToCartViewController:UIViewController{
         }
     }
     
-    
-    
     //MARK:- Handling Stepper
     @IBAction func chnageQuantity(_ sender: UIStepper) {
         quantityLabel.text = String(Int(sender.value))
         totalAmount = sender.value * 10
         totalAmountLabel.text = "$\(totalAmount!)"
     }
-    
-    
 }
+
+

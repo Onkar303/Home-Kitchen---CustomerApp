@@ -15,6 +15,34 @@ class Constants{
     static let KEY = "7197d6ced50f405c963c1ea1e7d24844"
     
     
+    static let SPPONOCULAR_CUISINE_CATEGORY = ["African",
+                                         "American",
+                                         "British",
+                                         "Cajun",
+                                         "Caribbean",
+                                         "Chinese",
+                                         "Eastern European",
+                                         "European",
+                                         "French",
+                                         "German",
+                                         "Greek",
+                                         "Indian",
+                                         "Irish",
+                                         "Italian",
+                                         "Japanese",
+                                         "Jewish",
+                                         "Korean",
+                                         "Latin American",
+                                         "Mediterranean",
+                                         "Mexican",
+                                         "Middle Eastern",
+                                         "Nordic",
+                                         "Southern",
+                                         "Spanish",
+                                         "Thai",
+                                         "Vietnamese"]
+    
+    
     static func setUserDefaults(email:String?,password:String?){
         
         guard let email = email else {return}
@@ -40,8 +68,8 @@ class Constants{
     static let ACCOUNT_SIGNOUT_SECTION_HEADER = "Signout"
     
     //Constant for Firestore
-    static let FIRE_STORE_USER_COLLECTION_NAME = "USERS"
     static let FIRE_STORE_KITCHEN_COLLECTION_NAME = "HomeKitchens"
+    static let FIRE_STORE_CUSTOMER_COLLECTION_NAME = "Customers"
     
 }
 
@@ -49,11 +77,11 @@ class Constants{
 extension Constants{
     static let USERDEFAULTS_USERNAME = "email"
     static let USERDEFAULTS_PASSWORD = "password"
-    static let USERDEFAULTS_USERID = "UserID"
-    static let USERDEFAULTS_FIRSTNAME = "FisrtName"
-    static let USERDEFAULTS_LASTNAME = "LastName"
-    static let USERDEFAULTS_USERADDRESS="UserAddress"
+    static let USERDEFAULTS_CUSTOMERID = "customerId"
+    static let USERDEFAULTS_FIRSTNAME = "firstName"
+    static let USERDEFAULTS_LASTNAME = "lastName"
+    static let USERDEFAULTS_CUSTOMERADDRESS="address"
     //static let USERDEFAULTS_
-    static let USERDEFAULTS_USERCONTACTNUMBER="UserContactNumber"
+    static let USERDEFAULTS_CUSTOMERCONTACTNUMBER="contactNumber"
 }
 

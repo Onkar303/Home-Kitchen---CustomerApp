@@ -30,6 +30,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
         
     }
     
+    //MARK:- Attaching Delegates
     func attachDelegate(){
         
         accountDetailsTableView.delegate = self
@@ -44,12 +45,12 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
     }
     
     
-    // Mark: Function for UI Configure
+    // MARK: Function for UI Configure
     func configureUI(){
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
-    //Function for Signout
+    //MARK:-Function for Signout
     func signOut(){
         do{
             try authController?.signOut()
@@ -61,7 +62,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    //Function for Change in Root Controller
+    //MARK:- Function for Change in Root Controller
     func changeRootController(){
         let storyBoard = UIStoryboard(name: "Main", bundle: .main)
         let loginViewController = storyBoard.instantiateViewController(withIdentifier: "LoginNavigationController")
@@ -79,7 +80,7 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
         present(formViewController, animated: true, completion: nil)
     }
     
-    // Function for Getting User Information
+    //MARK:- Function for Getting User Information
     func getUserInfo(titleLabel:String) -> String? {
         if titleLabel == Constants.ACCOUNT_PASSWORD_PARAM{
             return "*******"
@@ -121,9 +122,9 @@ class AccountDetailsViewController:UIViewController, UITableViewDelegate, UITabl
             } else if accountParams[indexPath.row] == Constants.ACCOUNT_USER_LAST_NAME_PARAM {
                 cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_LASTNAME)
             } else if accountParams[indexPath.row] == Constants.ACCOUNT_USER_CONTACT_NUMBER_PARAM {
-                cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERCONTACTNUMBER)
+                cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_CUSTOMERCONTACTNUMBER)
             } else {
-                cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERADDRESS)
+                cell.accountDetailsValue.text = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_CUSTOMERADDRESS)
             }
             cell.accessoryType = .disclosureIndicator
         

@@ -61,9 +61,9 @@ class FormViewController: UIViewController{
         }else if title == "Last Name"{
             updateUser(updateField: Constants.USERDEFAULTS_LASTNAME, text: text)
         }else if title == "Contact Number"{
-            updateUser(updateField: Constants.USERDEFAULTS_USERCONTACTNUMBER, text: text)
+            updateUser(updateField: Constants.USERDEFAULTS_CUSTOMERCONTACTNUMBER, text: text)
         }else{
-            updateUser(updateField: Constants.USERDEFAULTS_USERADDRESS, text: text)
+            updateUser(updateField: Constants.USERDEFAULTS_CUSTOMERADDRESS, text: text)
         }
     }
     
