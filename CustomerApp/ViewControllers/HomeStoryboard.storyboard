@@ -37,25 +37,17 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1NF-Qm-RA3" customClass="CardView" customModule="CustomerApp" customModuleProvider="target">
                                                     <rect key="frame" x="5" y="5" width="387" height="268"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kbW-7y-xJa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="387" height="214.5"/>
-                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tj-bZ-hbg">
-                                                            <rect key="frame" x="8" y="224.5" width="359" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <rect key="frame" x="168.5" y="120" width="50.5" height="28.5"/>
+                                                            <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="0tj-bZ-hbg" secondAttribute="trailing" constant="20" symbolic="YES" id="3vG-cj-nU5"/>
-                                                        <constraint firstItem="0tj-bZ-hbg" firstAttribute="top" secondItem="kbW-7y-xJa" secondAttribute="bottom" constant="10" id="bRp-th-D8l"/>
-                                                        <constraint firstAttribute="trailing" secondItem="kbW-7y-xJa" secondAttribute="trailing" id="c5P-yr-rNj"/>
-                                                        <constraint firstItem="kbW-7y-xJa" firstAttribute="leading" secondItem="1NF-Qm-RA3" secondAttribute="leading" id="f72-Ca-O13"/>
-                                                        <constraint firstItem="kbW-7y-xJa" firstAttribute="top" secondItem="1NF-Qm-RA3" secondAttribute="top" id="jom-0n-gO3"/>
-                                                        <constraint firstItem="kbW-7y-xJa" firstAttribute="height" secondItem="1NF-Qm-RA3" secondAttribute="height" multiplier="0.8" id="oqh-o0-Djn"/>
-                                                        <constraint firstItem="0tj-bZ-hbg" firstAttribute="leading" secondItem="1NF-Qm-RA3" secondAttribute="leading" constant="8" id="yki-eE-vec"/>
+                                                        <constraint firstItem="0tj-bZ-hbg" firstAttribute="centerX" secondItem="1NF-Qm-RA3" secondAttribute="centerX" id="Vib-yN-brJ"/>
+                                                        <constraint firstItem="0tj-bZ-hbg" firstAttribute="centerY" secondItem="1NF-Qm-RA3" secondAttribute="centerY" id="e4m-y3-y1s"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -68,7 +60,6 @@
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="397" height="278"/>
                                         <connections>
-                                            <outlet property="categoryImageView" destination="kbW-7y-xJa" id="Pab-Xq-8zX"/>
                                             <outlet property="categoryLabel" destination="0tj-bZ-hbg" id="JgD-Mx-tUZ"/>
                                         </connections>
                                     </collectionViewCell>

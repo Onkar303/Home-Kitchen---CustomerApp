@@ -12,7 +12,7 @@ import FirebaseFirestore
 
 
 class KitchenViewController:UIViewController{
-
+    
     static let STORYBOARD_IDENTIFIER = "KitchenViewController"
     
     @IBOutlet weak var kitchenTableView: UITableView!
@@ -23,11 +23,12 @@ class KitchenViewController:UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         configureUI()
         attachDelegates()
         configureFirebase()
-        fetchKitchens()
+        fetchKitchenForCategory()
+        //fetchKitchens()
     }
     
     
@@ -47,7 +48,9 @@ class KitchenViewController:UIViewController{
         
         self.navigationItem.searchController = searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
-
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(segueToCartViewController))
+        
     }
     
     
@@ -61,37 +64,55 @@ class KitchenViewController:UIViewController{
     func fetchKitchenForCategory(){
         kitchens.removeAll()
         fireStore?.collection(Constants.FIRE_STORE_KITCHEN_COLLECTION_NAME).whereField("kitchenCuisine", isEqualTo: category).getDocuments(completion: { (querySnapShot, error) in
-        
             
-        
-        })
-    }
-    
-    //MARK:- Fetching kitchens
-    func fetchKitchens(){
-        kitchens.removeAll()
-        fireStore?.collection(Constants.FIRE_STORE_KITCHEN_COLLECTION_NAME).getDocuments(completion: { (querySnapShot, error) in
             if let error = error {
-                print("error fetchinf kitchens from Firebase \(error)")
+                print("error fetching kitchen according to cuisine \(error)")
                 return
             }
-           
+            
             let jsonDecoder = JSONDecoder()
             querySnapShot?.documents.forEach({ (queryDocument) in
                 do {
-                    let jsonSerialization = try JSONSerialization.data(withJSONObject: queryDocument.data() , options: [])
-                    let data = try jsonDecoder.decode(HomeKitchen.self, from: jsonSerialization)
+                    let jsonSerializaation = try JSONSerialization.data(withJSONObject: queryDocument.data(), options: [])
+                    let data = try jsonDecoder.decode(HomeKitchen.self, from: jsonSerializaation)
                     self.kitchens.append(data)
-                } catch let error{
-                    print("error in adding kitchens \(error)")
+                }catch let error {
+                    print("error converting data ")
                 }
             })
             
             DispatchQueue.main.async {
                 self.kitchenTableView.reloadData()
             }
+
         })
     }
+    
+    //MARK:- Fetching kitchens
+//    func fetchKitchens(){
+//        kitchens.removeAll()
+//        fireStore?.collection(Constants.FIRE_STORE_KITCHEN_COLLECTION_NAME).getDocuments(completion: { (querySnapShot, error) in
+//            if let error = error {
+//                print("error fetchinf kitchens from Firebase \(error)")
+//                return
+//            }
+//            
+//            let jsonDecoder = JSONDecoder()
+//            querySnapShot?.documents.forEach({ (queryDocument) in
+//                do {
+//                    let jsonSerialization = try JSONSerialization.data(withJSONObject: queryDocument.data() , options: [])
+//                    let data = try jsonDecoder.decode(HomeKitchen.self, from: jsonSerialization)
+//                    self.kitchens.append(data)
+//                } catch let error{
+//                    print("error in adding kitchens \(error)")
+//                }
+//            })
+//            
+//            DispatchQueue.main.async {
+//                self.kitchenTableView.reloadData()
+//            }
+//        })
+//    }
     
     
     //MARK:- Segue To Dishes View Controller
@@ -101,6 +122,25 @@ class KitchenViewController:UIViewController{
         dishesViewController.homeKitchen  = kitchens[indexPath.row]
         self.navigationController?.pushViewController(dishesViewController, animated: true)
         
+    }
+    
+    @objc func segueToCartViewController(){
+        
+        if Utilities.dishesToOrder.count != 0 {
+            let storyboard = UIStoryboard(name:"CartStoryboard", bundle: .main)
+            let cartViewController = storyboard.instantiateViewController(identifier: CartViewController.STORYBOARD_IDENTIFIER) as! CartViewController
+            cartViewController.orderStatusDelegate = self
+            self.present(cartViewController, animated: true, completion: nil)
+        }else {
+            present(Utilities.showMessage(title: "Alert!", message:"Cart Empty !"), animated: true, completion: nil)
+        }
+        
+    }
+    
+    func segueToOrderStatusViewContorller(){
+        let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
+        let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+       navigationController?.pushViewController(orderStatusViewController, animated: true)
     }
     
 }
@@ -134,5 +174,13 @@ extension KitchenViewController:UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController) {
         
         
+    }
+}
+
+extension KitchenViewController:OrderStatusDelegate{
+    func showOrderSatus(shouldShow: Bool) {
+        if shouldShow {
+           segueToOrderStatusViewContorller()
+        }
     }
 }

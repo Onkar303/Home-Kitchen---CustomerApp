@@ -72,12 +72,13 @@ class SignupViewController:UIViewController{
     
     //MARK:- Performing segue to HomeViewController
     func segueToHomeViewController(){
-        let storyBoard = UIStoryboard(name: "HomeStoryboard", bundle: .main)
-        let homeViewController = storyBoard.instantiateViewController(identifier:"HomeNavigationController")
-        present(homeViewController, animated: true, completion: nil)
-        view.endEditing(true)
-        
+        let storyBoard = UIStoryboard(name: "Main", bundle: .main)
+        let homeViewController = storyBoard.instantiateViewController(identifier:"TabBarController")
+        navigationController?.pushViewController(homeViewController, animated: true)
+        //view.endEditing(true)
     }
+ 
+
     
     //MARK:- Sending UserInfo to firebase
     func sendDataToFirebase(isSuccessfull:@escaping (Bool) -> Void){

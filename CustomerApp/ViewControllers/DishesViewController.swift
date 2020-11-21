@@ -46,13 +46,12 @@ class DishesViewController:UIViewController{
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        
         searchController.searchResultsUpdater = self
-
-        
         self.navigationItem.searchController = searchController
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationController?.navigationItem.largeTitleDisplayMode = .automatic
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(segueToCartViewController))
         
     }
     
@@ -96,6 +95,24 @@ class DishesViewController:UIViewController{
         addToCartViewController.homeKitchen = homeKitchen
         addToCartViewController.dishAddedResponseDelegate = self
         self.navigationController?.pushViewController(addToCartViewController, animated: true)
+    }
+    
+    @objc func segueToCartViewController(){
+        
+        if Utilities.dishesToOrder.count != 0 {
+            let storyboard = UIStoryboard(name:"CartStoryboard", bundle: .main)
+            let cartViewController = storyboard.instantiateViewController(identifier: CartViewController.STORYBOARD_IDENTIFIER) as! CartViewController
+            cartViewController.orderStatusDelegate = self
+            self.present(cartViewController, animated: true, completion: nil)
+        }else {
+            present(Utilities.showMessage(title: "Alert!", message:"Cart Empty !"), animated: true, completion: nil)
+        }
+    }
+    
+    func segueToOrderStatusViewContorller(){
+        let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
+        let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+       navigationController?.pushViewController(orderStatusViewController, animated: true)
     }
 }
 
@@ -158,6 +175,14 @@ extension DishesViewController:DishAddResponseDelegate{
         }
         if didUpdate {
             present(Utilities.showMessage(title: "Success!", message:"Dish Updated !"), animated: true, completion: nil)
+        }
+    }
+}
+
+extension DishesViewController:OrderStatusDelegate{
+    func showOrderSatus(shouldShow: Bool) {
+        if shouldShow {
+           segueToOrderStatusViewContorller()
         }
     }
 }

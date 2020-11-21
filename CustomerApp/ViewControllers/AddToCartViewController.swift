@@ -40,7 +40,9 @@ class AddToCartViewController:UIViewController{
     func configureUI(){
         //self.navigationController?.navigationBar.isHidden = true
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(segueToCartViewController))
+//        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(segueToCartViewController))
+//
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(segueToCartViewController))
     }
     
     //MARK:- Set Value for quantity
@@ -78,9 +80,7 @@ class AddToCartViewController:UIViewController{
     @objc func segueToSummaryController(){
         let storyboard = UIStoryboard(name:"SummaryStoryboard", bundle: .main)
         let summaryController = storyboard.instantiateViewController(identifier: SummaryViewController.STORYBOARD_IDENTIFIER) as! SummaryViewController
-        
         summaryController.summaryText = summaryLabel.text
-
         present(summaryController, animated: true, completion: nil)
        
     }
@@ -92,11 +92,18 @@ class AddToCartViewController:UIViewController{
         if Utilities.dishesToOrder.count != 0 {
             let storyboard = UIStoryboard(name:"CartStoryboard", bundle: .main)
             let cartViewController = storyboard.instantiateViewController(identifier: CartViewController.STORYBOARD_IDENTIFIER) as! CartViewController
+            cartViewController.orderStatusDelegate = self
             self.present(cartViewController, animated: true, completion: nil)
         }else {
             present(Utilities.showMessage(title: "Alert!", message:"Cart Empty !"), animated: true, completion: nil)
         }
         
+    }
+    
+    func segueToOrderStatusViewContorller(){
+        let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
+        let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+       navigationController?.pushViewController(orderStatusViewController, animated: true)
     }
     
     
@@ -121,9 +128,9 @@ class AddToCartViewController:UIViewController{
         Utilities.dishesToOrder.removeAll()
         Utilities.order.kitchenId = nil
         Utilities.order.kitchenName = nil
-        Utilities.order.contactName = nil
-        Utilities.order.contactNumber = nil
-        Utilities.order.contactAddress = nil
+        Utilities.order.customerName = nil
+        Utilities.order.customerContactNumber = nil
+        Utilities.order.customerAddress = nil
         Utilities.order.totalAmount = nil
         Utilities.order.dishesToOrder = nil
     }
@@ -166,6 +173,8 @@ class AddToCartViewController:UIViewController{
     func setOrder(){
         Utilities.order.kitchenId = homeKitchen?.kitchenID
         Utilities.order.kitchenName = homeKitchen?.kitchenName
+        Utilities.order.kitchenOrderReference = homeKitchen?.kitchenOrdersCollectionReference
+        
     }
     
     
@@ -214,6 +223,17 @@ class AddToCartViewController:UIViewController{
         totalAmount = sender.value * 10
         totalAmountLabel.text = "$\(totalAmount!)"
     }
+}
+
+
+extension AddToCartViewController:OrderStatusDelegate {
+    func showOrderSatus(shouldShow: Bool) {
+        if shouldShow {
+            segueToOrderStatusViewContorller()
+        }
+    }
+    
+    
 }
 
 

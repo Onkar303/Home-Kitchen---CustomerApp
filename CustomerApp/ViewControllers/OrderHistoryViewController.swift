@@ -14,7 +14,7 @@ class OrderHistoryViewController:UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        attachSearchController()
+        configureUI()
         attachDelegates()
         
     }
@@ -25,7 +25,7 @@ class OrderHistoryViewController:UIViewController{
         
     }
     
-    func attachSearchController(){
+    func configureUI(){
         
         self.title = "Orders"
         let searchController = UISearchController(searchResultsController: nil)
@@ -36,7 +36,27 @@ class OrderHistoryViewController:UIViewController{
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.largeTitleDisplayMode = .automatic
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(segueToCartViewController))
     
+    }
+    
+    @objc func segueToCartViewController(){
+        
+        if Utilities.dishesToOrder.count != 0 {
+            let storyboard = UIStoryboard(name:"CartStoryboard", bundle: .main)
+            let cartViewController = storyboard.instantiateViewController(identifier: CartViewController.STORYBOARD_IDENTIFIER) as! CartViewController
+            cartViewController.orderStatusDelegate = self
+            self.present(cartViewController, animated: true, completion: nil)
+        }else {
+            present(Utilities.showMessage(title: "Alert!", message:"Cart Empty !"), animated: true, completion: nil)
+        }
+    }
+    
+    func segueToOrderStatusViewContorller(){
+        let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
+        let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+       navigationController?.pushViewController(orderStatusViewController, animated: true)
     }
 }
 
@@ -55,4 +75,14 @@ extension OrderHistoryViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(130)
     }
+}
+
+extension OrderHistoryViewController:OrderStatusDelegate{
+    func showOrderSatus(shouldShow: Bool) {
+        if shouldShow {
+            segueToOrderStatusViewContorller()
+        }
+    }
+    
+    
 }

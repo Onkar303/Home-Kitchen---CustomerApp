@@ -31,7 +31,7 @@ class FormViewController: UIViewController{
         
     }
     
-    //Function to configure UI
+    //MARK:- Function to configure UI
     func configureUI(){
         paramTitleLabel.text = titleLabel
         guard let value = value else{return}
@@ -42,17 +42,16 @@ class FormViewController: UIViewController{
         }
     }
     
-    //Function to Configure Firebase
+    //MARK:- Function to Configure Firebase
     func configureFirebase(){
         firebaseAuth = Auth.auth()
         firesStore = Firestore.firestore()
     }
     
-    //Function for SAVE Button
+    //MARK:- Function for SAVE Button
     @IBAction func saveTapped(_ sender: Any){
         guard let title = titleLabel, !title.isEmpty else{return}
         guard let text = commonTextField.text, !text.isEmpty else{return}
-        
         
         if title == "Password"{
             changePassword(password: text)
@@ -67,44 +66,42 @@ class FormViewController: UIViewController{
         }
     }
     
-    // Function to update User
+    //MARK:- Function to update User
     func updateUser(updateField: String?, text: String){
-//        guard let userID = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_USERID), !userID.isEmpty else {return}
-//        let docReference = firesStore?.collection(Constants.FIRE_STORE_USER_COLLECTION_NAME).document(userID)
-//
-//        docReference?.updateData([updateField: text], completion: {
-//            (error) in
-//            if let error = error {
-//                print("error updating data \(error)")
-//            }else{
-//                self.dismiss(animated: true, completion: nil)
-//                self.updateUserInfo { (isUpdated) in
-//                    if isUpdated{
-//                        self.responseDelegate?.onUpdateResponse(status: isUpdated, updateField: updateField)
-//                    }
-//                }
-//            }
-//        })
+        guard let customerId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_CUSTOMERID), !customerId.isEmpty else {return}
+        let docReference = firesStore?.collection(Constants.FIRE_STORE_CUSTOMER_COLLECTION_NAME).document(customerId)
+
+        docReference?.updateData([updateField: text], completion: { (error) in
+            if let error = error {
+                print("error updating data \(error)")
+            }else{
+                self.dismiss(animated: true, completion: nil)
+                self.updateUserDefaults { (isUpdated) in
+                    if isUpdated{
+                        self.responseDelegate?.onUpdateResponse(status: isUpdated, updateField: updateField)
+                    }
+                }
+            }
+        })
     }
     
-    //function to update user information
-    func updateUserInfo(completion: @escaping (Bool)->Void){
-//        guard let userID = Utilities.userId else {return}
-//        let docReference = firesStore?.collection(Constants.FIRE_STORE_USER_COLLECTION_NAME).document(userID)
-//        docReference?.getDocument(completion: {(docSnapShot, error)
-//            in
-//            if let error = error{
-//                print("error in fetch userDocument \(error)")
-//                return completion(false)
-//            }
-//            let userData = docSnapShot?.data()
-//            Utilities.setUserDefaults(userDictionary: docSnapShot?.data())
-//            return completion(true)
-//        })
+    //MARK:- function to update user information
+    func updateUserDefaults(completion: @escaping (Bool)->Void){
+        guard let userID = Utilities.userId else {return}
+        let docReference = firesStore?.collection(Constants.FIRE_STORE_CUSTOMER_COLLECTION_NAME).document(userID)
+        docReference?.getDocument(completion: {(docSnapShot, error)
+            in
+            if let error = error{
+                print("error in fetch userDocument \(error)")
+                return completion(false)
+            }
+            Utilities.setUserDefaults(userDictionary: docSnapShot?.data())
+            return completion(true)
+        })
     }
     
     
-    // function to change password
+    //MARK:- function to change password
     func changePassword(password: String?){
         guard let password = password else{return}
         firebaseAuth?.currentUser?.updateEmail(to: password, completion: { (error) in

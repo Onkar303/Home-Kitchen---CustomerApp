@@ -31,6 +31,8 @@
 		428799132540893500E83CEF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799122540893500E83CEF /* HomeViewController.swift */; };
 		428799182540897700E83CEF /* AccountDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428799172540897700E83CEF /* AccountDetailsViewController.swift */; };
 		4287991D254089B200E83CEF /* OrderHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4287991C254089B200E83CEF /* OrderHistoryViewController.swift */; };
+		42B03BC32568FF6700D2A25C /* OrderStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B03BC22568FF6700D2A25C /* OrderStatusViewController.swift */; };
+		42B03BC82568FF9D00D2A25C /* OrderStatusStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B03BC72568FF9D00D2A25C /* OrderStatusStoryboard.storyboard */; };
 		42B9D30A2564BCE00082BE46 /* KitchenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3092564BCE00082BE46 /* KitchenViewController.swift */; };
 		42B9D30F2564BCF30082BE46 /* KitchenStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42B9D30E2564BCF30082BE46 /* KitchenStoryboard.storyboard */; };
 		42B9D3172564C3930082BE46 /* KitchenTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B9D3162564C3930082BE46 /* KitchenTableViewCell.swift */; };
@@ -112,6 +114,8 @@
 		428799122540893500E83CEF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		428799172540897700E83CEF /* AccountDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailsViewController.swift; sourceTree = "<group>"; };
 		4287991C254089B200E83CEF /* OrderHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryViewController.swift; sourceTree = "<group>"; };
+		42B03BC22568FF6700D2A25C /* OrderStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatusViewController.swift; sourceTree = "<group>"; };
+		42B03BC72568FF9D00D2A25C /* OrderStatusStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OrderStatusStoryboard.storyboard; sourceTree = "<group>"; };
 		42B9D3092564BCE00082BE46 /* KitchenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenViewController.swift; sourceTree = "<group>"; };
 		42B9D30E2564BCF30082BE46 /* KitchenStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KitchenStoryboard.storyboard; sourceTree = "<group>"; };
 		42B9D3162564C3930082BE46 /* KitchenTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KitchenTableViewCell.swift; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 				42B9D34D2564DD5B0082BE46 /* AddToCartStoryboard.storyboard */,
 				42B9D364256573240082BE46 /* SummaryViewController.swift */,
 				42B9D36C256573660082BE46 /* SummaryStoryboard.storyboard */,
+				42B03BC22568FF6700D2A25C /* OrderStatusViewController.swift */,
+				42B03BC72568FF9D00D2A25C /* OrderStatusStoryboard.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -453,6 +459,7 @@
 				42B9D30F2564BCF30082BE46 /* KitchenStoryboard.storyboard in Resources */,
 				42486E8F253C1ADE00C3BD41 /* LaunchScreen.storyboard in Resources */,
 				4272F3A0254A7A46008BFE61 /* HomeStoryboard.storyboard in Resources */,
+				42B03BC82568FF9D00D2A25C /* OrderStatusStoryboard.storyboard in Resources */,
 				42B9D3442564DCFB0082BE46 /* CartStoryboard.storyboard in Resources */,
 				BE96054C2563F1A000C2F4D4 /* GoogleService-Info.plist in Resources */,
 				4272F390254A79C3008BFE61 /* AccountDetailsStoryboard.storyboard in Resources */,
@@ -603,6 +610,7 @@
 				BEE14FF42563564C00B84C68 /* CustomTextField.swift in Sources */,
 				4262EFB6254175930065537B /* OrdersTableViewCell.swift in Sources */,
 				42B9D3542564DE220082BE46 /* DishesTableViewCell.swift in Sources */,
+				42B03BC32568FF6700D2A25C /* OrderStatusViewController.swift in Sources */,
 				BED9F0292562399C00C2C592 /* Utilities.swift in Sources */,
 				42486E83253C1ADD00C3BD41 /* AppDelegate.swift in Sources */,
 				42B9D3352564DA570082BE46 /* DishesViewController.swift in Sources */,

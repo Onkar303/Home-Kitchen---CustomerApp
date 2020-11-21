@@ -167,8 +167,8 @@ extension AccountDetailsViewController: ResponseDelegate{
     func onUpdateResponse(status: Bool, updateField: String?) {
         if status{
             guard let updateField = updateField else{ return}
-           // print(Utilities.userFirstName)
-          //  present(Utilities.showMessage(title: Constants.SUCCESS, message: "\(updateField) Update Successful"), animated: true, completion: nil)
+            accountDetailsTableView.reloadData()
+            present(Utilities.showMessage(title: Constants.SUCCESS, message: "\(updateField) Update Successful"), animated: true, completion: nil)
         } else{
             
         }

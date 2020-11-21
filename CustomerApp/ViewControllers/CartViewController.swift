@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 class CartViewController:UIViewController{
     
@@ -15,8 +16,10 @@ class CartViewController:UIViewController{
     @IBOutlet weak var topHandleView: UIView!
     
     
+    var fireStore:Firestore?
     var dishesToOrder = Utilities.dishesToOrder
     var homeKitchen:HomeKitchen?
+    var orderStatusDelegate:OrderStatusDelegate?
     var orderActions = ["Confirm Order","Cancel Order"]
     
     let TITLE_SECTION = 0
@@ -29,6 +32,7 @@ class CartViewController:UIViewController{
         super.viewDidLoad()
         configureUI()
         attachDelegates()
+        configureFirebase()
     }
     
     //MARK:- configure UI
@@ -46,6 +50,11 @@ class CartViewController:UIViewController{
         cartTableView.dataSource = self
     }
     
+    //MARK:- Configure FireStore
+    func configureFirebase(){
+        fireStore = Firestore.firestore()
+    }
+    
     //MARK:- Caluculating the Total
     func calculateTotal() -> Double{
         var total:Double = 0
@@ -55,9 +64,56 @@ class CartViewController:UIViewController{
         return total
     }
     
-    //MARK:-
+    //MARK:- going to Order status View Controller
     func segueToOrderStatusViewContorller(){
+        let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
+        let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+       navigationController?.pushViewController(orderStatusViewController, animated: true)
+    }
+    
+    //MARK:- removing Order
+    func removeOrder(){
+        Utilities.dishesToOrder.removeAll()
+        Utilities.order.kitchenId = nil
+        Utilities.order.kitchenName = nil
+        Utilities.order.customerName = nil
+        Utilities.order.customerContactNumber = nil
+        Utilities.order.customerAddress = nil
+        Utilities.order.totalAmount = nil
+        Utilities.order.dishesToOrder = nil
+    }
+    
+    //MARK:- Adding Order To FireStore
+    func addToOrderCollection(isSuccessful: @escaping (Bool) -> Void){
+        guard let kitchenOrderReference = Utilities.order.kitchenOrderReference else {return}
+        guard let order = createOrder() else {return}
+        fireStore?.collection(kitchenOrderReference).addDocument(data: order.converToDictionary() , completion: { (error) in
+            if let error = error {
+                print("Error placing order \(error)")
+                isSuccessful(false)
+                return
+            }
+            isSuccessful(true)
+        })
+    }
+    
+
+    //MARK:- Creating an Order
+    func createOrder() -> Order?{
+        Utilities.order.dishesToOrder = Utilities.dishesToOrder
+        guard let customerFirstName = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_FIRSTNAME) else {  return nil}
+        guard let customerLastName = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_LASTNAME) else {  return nil}
+        guard let customerCustomerId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_CUSTOMERID)else {return nil}
+        guard let customerAddress = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_CUSTOMERADDRESS) else {return nil}
+        guard let customerPhoneNumber = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_CUSTOMERCONTACTNUMBER) else {  return nil}
         
+        Utilities.order.customerId = customerCustomerId
+        Utilities.order.customerName = customerFirstName + " " + customerLastName
+        Utilities.order.customerAddress = customerAddress
+        Utilities.order.customerContactNumber = Int(customerPhoneNumber)
+        Utilities.order.isOrderCompleted = false
+        
+        return Utilities.order
     }
     
 }
@@ -83,7 +139,12 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
         
         if indexPath.section == TITLE_SECTION {
             let titleCell = tableView.dequeueReusableCell(withIdentifier: CartTitleTableViewCell.CELL_IDENTIFIER, for: indexPath) as! CartTitleTableViewCell
-            titleCell.kitchenNameLabel.text = "Kitchen:\(homeKitchen?.kitchenName)"
+            if let kitchenName = Utilities.order.kitchenName {
+                titleCell.kitchenNameLabel.text = "Kitchen: \(kitchenName)"
+            } else {
+                titleCell.kitchenNameLabel.text = ""
+            }
+            
             return titleCell
         }
         
@@ -116,7 +177,6 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
         actionCellCancel.backgroundColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
         actionCellCancel.textLabel?.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         return actionCellCancel
-        
     }
     
     
@@ -130,11 +190,18 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == ACTION_SECTION_CONFIRM {
-            
+            addToOrderCollection { (isSuccessfull) in
+                if isSuccessfull {
+                    self.dismiss(animated: true) {
+                        self.orderStatusDelegate?.showOrderSatus(shouldShow: true)
+                    }
+                }
+            }
         }
         
         if indexPath.section == ACTION_SECTION_CANCEL {
-            
+           removeOrder()
+           dismiss(animated: true, completion: nil)
         }
     }
     

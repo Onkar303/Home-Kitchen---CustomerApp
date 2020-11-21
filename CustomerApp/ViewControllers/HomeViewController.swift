@@ -21,6 +21,7 @@ class HomeViewController:UIViewController{
         
         attachDelegates()
         customiseView()
+        configureUI()
     }
     
     //MARK:- Attaching Delegates
@@ -36,11 +37,36 @@ class HomeViewController:UIViewController{
         navigationItem.largeTitleDisplayMode = .automatic
     }
     
+    
+    func configureUI(){
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(segueToCartViewController))
+    }
+    
+    @objc func segueToCartViewController(){
+        
+        if Utilities.dishesToOrder.count != 0 {
+            let storyboard = UIStoryboard(name:"CartStoryboard", bundle: .main)
+            let cartViewController = storyboard.instantiateViewController(identifier: CartViewController.STORYBOARD_IDENTIFIER) as! CartViewController
+            cartViewController.orderStatusDelegate = self
+            self.present(cartViewController, animated: true, completion: nil)
+        }else {
+            present(Utilities.showMessage(title: "Alert!", message:"Cart Empty !"), animated: true, completion: nil)
+        }
+        
+    }
+    
     //MARK:- Seqgue To KitchenViewController
-    func sequeToKitchenViewController(){
+    func sequeToKitchenViewController(indexPath:IndexPath){
         let storyBoard = UIStoryboard(name: "KitchenStoryboard", bundle: .main)
-        let kitchenViewController = storyBoard.instantiateViewController(identifier:KitchenViewController.STORYBOARD_IDENTIFIER)
+        let kitchenViewController = storyBoard.instantiateViewController(identifier:KitchenViewController.STORYBOARD_IDENTIFIER) as! KitchenViewController
+        kitchenViewController.category = categories[indexPath.row]
         self.navigationController?.pushViewController(kitchenViewController, animated: true)
+    }
+    
+    func segueToOrderStatusViewContorller(){
+        let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
+        let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+       navigationController?.pushViewController(orderStatusViewController, animated: true)
     }
 }
 
@@ -59,17 +85,21 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = view.frame.width*0.9
-        let height = view.frame.height*0.4
-        
+        let width = view.frame.width * 0.9
+        let height = view.frame.height*0.3
         return CGSize(width: width, height: height)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        sequeToKitchenViewController()
+        sequeToKitchenViewController(indexPath: indexPath)
     }
-    
-    
-    
+}
+
+extension HomeViewController: OrderStatusDelegate {
+    func showOrderSatus(shouldShow: Bool) {
+        if shouldShow {
+            segueToOrderStatusViewContorller()
+        }
+    }
 }

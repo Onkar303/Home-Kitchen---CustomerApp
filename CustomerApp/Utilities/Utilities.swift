@@ -30,6 +30,7 @@ class Utilities{
         userDefaults.setValue(email, forKey: Constants.USERDEFAULTS_USERNAME)
         userDefaults.setValue(MD5(string:password), forKey: Constants.USERDEFAULTS_PASSWORD)
         userDefaults.setValue(MD5(string:email+MD5(string:password)),forKey:Constants.USERDEFAULTS_CUSTOMERID)
+        
     }
     //MARK:- Retriving the hash
     static func MD5(string: String) -> String {
@@ -153,6 +154,9 @@ class Utilities{
         guard let text = text else {return ""}
         return text.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
     }
+    
+
+    
 }
 
 extension UIImageView{

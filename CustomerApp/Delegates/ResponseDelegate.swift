@@ -15,3 +15,7 @@ protocol ResponseDelegate:AnyObject {
 protocol DishAddResponseDelegate:AnyObject{
     func dishAddedOrUpdated(didAdd:Bool,didUpdate:Bool)
 }
+
+protocol OrderStatusDelegate:AnyObject{
+    func showOrderSatus(shouldShow:Bool)
+}
