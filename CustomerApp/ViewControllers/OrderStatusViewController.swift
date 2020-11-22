@@ -35,4 +35,11 @@ class OrderStatusViewController:UIViewController{
         }
     }
     
+    @IBAction func showLoaction(_ sender: Any) {
+        
+        let storyBoard = UIStoryboard(name: "LocationStoryboard", bundle: .main )
+        
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "LocationStoryBoard") as! LocationViewController 
+        present(viewController, animated: true, completion: nil)
+    }
 }
