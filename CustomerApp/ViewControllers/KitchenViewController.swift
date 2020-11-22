@@ -137,9 +137,11 @@ class KitchenViewController:UIViewController{
         
     }
     
-    func segueToOrderStatusViewContorller(){
+    func segueToOrderStatusViewContorller(isSuccessfull: Bool){
         let storyBoard = UIStoryboard(name: "OrderStatusStoryboard", bundle: .main)
         let orderStatusViewController = storyBoard.instantiateViewController(identifier: OrderStatusViewController.STORYBOARD_IDENTIFIER) as! OrderStatusViewController
+        
+        orderStatusViewController.isSuccessfull = isSuccessfull
        navigationController?.pushViewController(orderStatusViewController, animated: true)
     }
     
@@ -178,9 +180,9 @@ extension KitchenViewController:UISearchResultsUpdating{
 }
 
 extension KitchenViewController:OrderStatusDelegate{
-    func showOrderSatus(shouldShow: Bool) {
+    func showOrderSatus(shouldShow: Bool,isSuccessfull: Bool) {
         if shouldShow {
-           segueToOrderStatusViewContorller()
+           segueToOrderStatusViewContorller(isSuccessfull: isSuccessfull)
         }
     }
 }

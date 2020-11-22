@@ -195,7 +195,7 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
             addToOrderCollection { (isSuccessfull) in
                 if isSuccessfull {
                     self.dismiss(animated: true) {
-                        self.orderStatusDelegate?.showOrderSatus(shouldShow: true)
+                        self.orderStatusDelegate?.showOrderSatus(shouldShow: true, isSuccessfull: isSuccessfull)
                     }
                 }
             }

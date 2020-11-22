@@ -17,5 +17,5 @@ protocol DishAddResponseDelegate:AnyObject{
 }
 
 protocol OrderStatusDelegate:AnyObject{
-    func showOrderSatus(shouldShow:Bool)
+    func showOrderSatus(shouldShow:Bool,isSuccessfull:Bool)
 }
