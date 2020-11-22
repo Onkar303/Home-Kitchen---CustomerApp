@@ -7,22 +7,30 @@
 
 import Foundation
 import UIKit
+import FirebaseFirestore
 
 class OrderHistoryViewController:UIViewController{
     
     @IBOutlet weak var ordersTableView: UITableView!
+    
+    var fireStore:Firestore?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configureFirebase()
         configureUI()
         attachDelegates()
         
     }
     
+    
     func attachDelegates(){
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
-        
+    }
+    
+    func configureFirebase(){
+        fireStore = Firestore.firestore()
     }
     
     func configureUI(){
@@ -32,14 +40,17 @@ class OrderHistoryViewController:UIViewController{
         searchController.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
         
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.hidesSearchBarWhenScrolling = true
         navigationItem.largeTitleDisplayMode = .automatic
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(segueToCartViewController))
     
     }
+    
+    
+//    func getOrders(){
+//        fireStore?.collectionGroup(<#T##collectionID: String##String#>).where
+//    }
     
     @objc func segueToCartViewController(){
         

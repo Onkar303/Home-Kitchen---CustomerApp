@@ -132,7 +132,7 @@ class AddToCartViewController:UIViewController{
         Utilities.order.customerContactNumber = nil
         Utilities.order.customerAddress = nil
         Utilities.order.totalAmount = nil
-        Utilities.order.dishesToOrder = nil
+        Utilities.order.dishToOrder = nil
     }
 
     //MARK:- Handling Add to Cart button action 

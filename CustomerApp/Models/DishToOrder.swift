@@ -7,12 +7,12 @@
 
 import Foundation
 
-class DishToOrder{
+class DishToOrder:Codable{
     var dishId:Int?
     var dishName:String?
     var dishQuantity:Int?
     var dishPrice:Double?
-    
+        
     
     func convertToDictionary() -> [String:Any]{
         var dict = [String:Any]()

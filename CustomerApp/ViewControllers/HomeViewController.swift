@@ -81,6 +81,7 @@ extension HomeViewController:UICollectionViewDelegate,UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.CELL_IDENTIFIER, for: indexPath) as! CategoryCollectionViewCell
         cell.categoryLabel.text = categories[indexPath.row]
+        
         return cell
     }
 

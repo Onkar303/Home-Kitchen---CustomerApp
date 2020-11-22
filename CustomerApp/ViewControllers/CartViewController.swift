@@ -80,19 +80,21 @@ class CartViewController:UIViewController{
         Utilities.order.customerContactNumber = nil
         Utilities.order.customerAddress = nil
         Utilities.order.totalAmount = nil
-        Utilities.order.dishesToOrder = nil
+        Utilities.order.dishToOrder = nil
     }
     
     //MARK:- Adding Order To FireStore
     func addToOrderCollection(isSuccessful: @escaping (Bool) -> Void){
         guard let kitchenOrderReference = Utilities.order.kitchenOrderReference else {return}
         guard let order = createOrder() else {return}
-        fireStore?.collection(kitchenOrderReference).addDocument(data: order.converToDictionary() , completion: { (error) in
+        
+        fireStore?.collection(kitchenOrderReference).document(order.orderId!).setData(order.converToDictionary(), completion: { (error) in
             if let error = error {
                 print("Error placing order \(error)")
                 isSuccessful(false)
                 return
             }
+            self.removeOrder()
             isSuccessful(true)
         })
     }
@@ -100,19 +102,19 @@ class CartViewController:UIViewController{
 
     //MARK:- Creating an Order
     func createOrder() -> Order?{
-        Utilities.order.dishesToOrder = Utilities.dishesToOrder
+        Utilities.order.dishToOrder = Utilities.dishesToOrder
         guard let customerFirstName = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_FIRSTNAME) else {  return nil}
         guard let customerLastName = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_LASTNAME) else {  return nil}
         guard let customerCustomerId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_CUSTOMERID)else {return nil}
         guard let customerAddress = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_CUSTOMERADDRESS) else {return nil}
         guard let customerPhoneNumber = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_CUSTOMERCONTACTNUMBER) else {  return nil}
-        
+        let documentReference = Utilities.MD5(string: customerCustomerId+customerFirstName + " " + customerLastName+customerAddress)
+        Utilities.order.orderId = documentReference
         Utilities.order.customerId = customerCustomerId
         Utilities.order.customerName = customerFirstName + " " + customerLastName
         Utilities.order.customerAddress = customerAddress
         Utilities.order.customerContactNumber = Int(customerPhoneNumber)
         Utilities.order.isOrderCompleted = false
-        
         return Utilities.order
     }
     
@@ -228,7 +230,6 @@ extension CartViewController:UITableViewDelegate,UITableViewDataSource{
             return .none
         }
     }
-    
-    
+        
     
 }
