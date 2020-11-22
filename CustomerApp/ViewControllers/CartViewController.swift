@@ -108,7 +108,7 @@ class CartViewController:UIViewController{
         guard let customerCustomerId = UserDefaults.standard.string(forKey: Constants.USERDEFAULTS_CUSTOMERID)else {return nil}
         guard let customerAddress = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_CUSTOMERADDRESS) else {return nil}
         guard let customerPhoneNumber = UserDefaults.standard.string(forKey:Constants.USERDEFAULTS_CUSTOMERCONTACTNUMBER) else {  return nil}
-        let documentReference = Utilities.MD5(string: customerCustomerId+customerFirstName + " " + customerLastName+customerAddress)
+        let documentReference = Utilities.MD5(string:String(Date().timeIntervalSince1970))
         Utilities.order.orderId = documentReference
         Utilities.order.customerId = customerCustomerId
         Utilities.order.customerName = customerFirstName + " " + customerLastName
